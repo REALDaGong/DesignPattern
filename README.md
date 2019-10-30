@@ -6,7 +6,7 @@
 
 - [x] 10/28
 - [x] 10/29
-- [ ] 10/30
+- [x] 10/30
 - [ ] 10/31
 - [ ] 11/1
 - [ ] 11/2
@@ -22,15 +22,17 @@
 
 
 
-- [x] plant
+- [x] plant(no implement)
 - [ ] animal
 - [x] tool
-- [ ] building
+- [ ] building(coming soon)
 - [ ] person
-- [ ] product
+- [ ] product(pending?)
 
 ## 最近的短期任务:
 
 * building部分需要person的具体实现
 
-* 明确一下product中是什么
+* 填好plant的实现
+
+* ♥哥牛逼
