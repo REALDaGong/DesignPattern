@@ -7,7 +7,7 @@
 - [x] 10/28
 - [x] 10/29
 - [x] 10/30
-- [ ] 10/31
+- [x] 10/31
 - [ ] 11/1
 - [ ] 11/2
 - [ ] 11/3
@@ -23,7 +23,7 @@
 
 
 - [x] plant(no implement)
-- [ ] animal
+- [x] animal(no implement)
 - [x] tool
 - [ ] building(coming soon)
 - [ ] person
@@ -33,7 +33,7 @@
 
 * building部分需要person的具体实现
 
-* 填好plant的实现
+* 填好plant,animal的实现
 
 * product再改改？
 
