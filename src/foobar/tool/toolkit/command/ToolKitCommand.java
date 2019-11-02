@@ -6,8 +6,8 @@ import java.awt.*;
 import java.util.Stack;
 
 public class ToolKitCommand implements Command {
-    private static Stack<ToolKitCommand> commandStack;//命令栈
-    private static Stack<Memento> mementoStack;//备忘录栈
+    private static Stack<ToolKitCommand> commandStack = new Stack<ToolKitCommand>();//命令栈
+    private static Stack<Memento> mementoStack = new Stack<Memento>();//备忘录栈
 
     private MementoReceiver receiver;//接受指令者
 

@@ -33,6 +33,10 @@ public class ToolKit extends Tool {
 
     @Override
     public void visit(Object basePlant) {
+        if(type == 0){
+            System.out.println("No strategy, please set.");
+            return;
+        }
         if(getState() == 0){                                //组合工具已经损坏
             System.out.println("This toolkit is damaged. Need to be repaired or replaced");
             return;
