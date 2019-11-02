@@ -18,12 +18,12 @@ public class WeedDecorator extends Tool {
 
     @Override
     public void visit(Object basePlant){
-        if(getState() == 0){
+        if(getState() == 0){                //刀已经损坏
             System.out.println("This knife is damaged. Need to be repaired or replaced");
             return;
         }
 
-        ((BasePlant)basePlant).pullWeed();
+        ((BasePlant)basePlant).pullWeed();          //割草刀除草
         System.out.println("Successful!");
 
         //operation by knife

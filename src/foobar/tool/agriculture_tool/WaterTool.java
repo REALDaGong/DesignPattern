@@ -16,12 +16,13 @@ public class WaterTool extends Tool {
             return;
         }
 
-        int watered = ((BasePlant)basePlant).watered(20);
+        int watered = ((BasePlant)basePlant).watered(20);      //浇水
         if(watered == 1)                                    //执行浇水前植物缺水则返回1，否则返回0
-            System.out.println("Water successfully!");
+            System.out.println("Successful!");
         else System.out.println("Water is full and you don't need to water!");
-        durability -= 1;
 
+        durability -= 1;
+        setState();
     }
 
     @Override

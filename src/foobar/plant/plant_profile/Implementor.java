@@ -15,6 +15,6 @@ public interface Implementor {
     /**
      * @return
      */
-    public ArrayList<Pair<BaseProduct,Float>> getDrop();
+    public Set<Object> getDrop();
 
 }

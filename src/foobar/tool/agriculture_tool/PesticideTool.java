@@ -1,10 +1,10 @@
 package foobar.tool.agriculture_tool;
-
 import foobar.Receiver;
 import foobar.plant.consumable.item.Pesticide;
 import foobar.plant.plant_entity.BasePlant;
 import foobar.tool.Tool;
 
+//喷农药壶
 public class PesticideTool extends Tool {
     private Pesticide pesticide;                //农药
 
@@ -20,7 +20,7 @@ public class PesticideTool extends Tool {
             return;
         }
 
-        ((BasePlant)basePlant).pesticided(this.pesticide);
+        ((BasePlant)basePlant).pesticided(this.pesticide);      //喷农药
         System.out.println("Successful!");
         //operation
 

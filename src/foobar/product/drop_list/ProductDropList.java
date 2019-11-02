@@ -67,9 +67,9 @@ public class ProductDropList implements ProductIterable, Implementor {
     /**
      * @return
      */
-    public ArrayList<Pair<BaseProduct,Float>> getDrop() {
+    public Set<Object> getDrop() {
         // TODO implement here
-        return productList;
+        return null;
     }
 
     /**
