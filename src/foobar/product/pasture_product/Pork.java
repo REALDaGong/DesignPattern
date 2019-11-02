@@ -1,14 +1,17 @@
 package foobar.product.pasture_product;
 
 import foobar.product.product_interface.BaseProduct;
+import foobar.Building.StoreHouse;
 
 public class Pork extends BaseProduct {
     protected int SHELFLIFE;
     protected String NAME;
 
-    public Pork() {
+    public Pork(StoreHouse store) {
         this.NAME = "pork";
         this.SHELFLIFE = 10;
+        AnimalProxy aproxy = new AnimalProxy(store);
+        aproxy.addAnimal(this);
     }
     public String getname(){
         return this.NAME;
