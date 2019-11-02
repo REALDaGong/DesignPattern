@@ -20,7 +20,7 @@ public class JinKeLaFactory extends AbstractConsumableFactory {
      */
     public Pesticide getPesticide() {
         // TODO implement here
-        return null;
+        return new JinP();
     }
 
     /**
@@ -28,7 +28,7 @@ public class JinKeLaFactory extends AbstractConsumableFactory {
      */
     public Fertilizer getFertilizer() {
         // TODO implement here
-        return null;
+        return new JinF();
     }
 
 }

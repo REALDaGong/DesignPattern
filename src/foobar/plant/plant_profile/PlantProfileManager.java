@@ -1,5 +1,7 @@
 package foobar.plant.plant_profile;
 
+import foobar.product.drop_list.DropListManager;
+
 import java.util.*;
 
 /**
@@ -17,7 +19,7 @@ public class PlantProfileManager {
     /**
      * 
      */
-    public Set<BasePlantProfile> plantProfileList;
+    public ArrayList<BasePlantProfile> plantProfileList=new ArrayList<BasePlantProfile>();
 
     /**
      * 
@@ -31,15 +33,43 @@ public class PlantProfileManager {
      * @param dropListName 
      * @param plantPrototype
      */
-    public void genNewPlantProfile(String dropListName, BasePlantProfile plantPrototype) {
+    public void addPlantProfile(String dropListName, BasePlantProfile plantPrototype) {
         // TODO implement here
+        if(getPlantProfileWithName(dropListName)==null){
+            plantProfileList.add(plantPrototype);
+        }
+    }
+
+    //产生新的产品属性
+    public BasePlantProfile generatePlantProfile(String dropListName){
+        BasePlantProfile basePlantProfile=null;
+        if(dropListName.equals("Melon")){
+            basePlantProfile=new MelonProfile();
+        }
+        else if(dropListName.equals("Cotton")){
+            basePlantProfile=new CottonProfile();
+        }
+        basePlantProfile.setName(dropListName);
+        if(DropListManager.getInstance().getDropListWithName(dropListName)!=null) {
+            basePlantProfile.addDropList(DropListManager.getInstance().getDropListWithName(dropListName));
+        }
+        else{
+            basePlantProfile.addDropList(DropListManager.getInstance().generateDropList(dropListName));
+        }
+        return basePlantProfile;
     }
 
     /**
      * @param name
+     * @return
      */
-    public void getPlantProfileWithName(String name) {
+    public BasePlantProfile getPlantProfileWithName(String name) {
         // TODO implement here
+        for(BasePlantProfile i : plantProfileList){
+            if(i.getName()==name)
+                return i;
+        }
+        return null;
     }
 
     /**
@@ -47,7 +77,7 @@ public class PlantProfileManager {
      */
     public static PlantProfileManager getInstance() {
         // TODO implement here
-        return null;
+        return instance;
     }
 
 }

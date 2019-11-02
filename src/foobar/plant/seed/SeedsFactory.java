@@ -7,7 +7,7 @@ import foobar.plant.plant_entity.*;
 /**
  * 
  */
-public class SeedsFactory {
+public abstract class SeedsFactory {
 
     /**
      * Default constructor
@@ -27,10 +27,7 @@ public class SeedsFactory {
     /**
      * 
      */
-    public void produceSeeds() {
-        // TODO implement here
-    }
-
+    public abstract SeedBag produceSeeds();
     /**
      * 
      */

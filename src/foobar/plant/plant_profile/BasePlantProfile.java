@@ -3,7 +3,7 @@ package foobar.plant.plant_profile;
 import java.util.*;
 
 import foobar.plant.period.*;
-import foobar.plant.product.drop_list.*;
+import foobar.product.drop_list.*;
 
 /**
  * 一种植物的基本属性的基类
@@ -52,9 +52,12 @@ public class BasePlantProfile {
      */
     public String getName() {
         // TODO implement here
-        return "";
+        return name;
     }
 
+    public void setName(String name){
+        this.name=name;
+    }
     /**
      * @return
      */
@@ -101,6 +104,7 @@ public class BasePlantProfile {
      */
     public void addDropList(ProductDropList list) {
         // TODO implement here
+        this.product=list;
     }
 
 }

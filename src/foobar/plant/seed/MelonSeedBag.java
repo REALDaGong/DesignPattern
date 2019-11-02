@@ -13,6 +13,8 @@ public class MelonSeedBag extends SeedBag {
      * Default constructor
      */
     public MelonSeedBag() {
+        this.setName("Melon");
+        this.setSeed();
     }
 
 }

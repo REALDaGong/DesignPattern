@@ -18,7 +18,7 @@ public class Pesticide {
     /**
      * 
      */
-    private Set<BonusEffect> moreEffect;
+    private ArrayList<BaseEffect> moreEffect=new ArrayList<BaseEffect>();
 
     /**
      * 
@@ -44,15 +44,38 @@ public class Pesticide {
     /**
      * @param effect
      */
-    public void addEffect(BonusEffect effect) {
+    public void addEffect(BaseEffect effect) {
         // TODO implement here
+        moreEffect.add(effect);
     }
 
     /**
-     * 
+     *
      */
     public void act() {
         // TODO implement here
+        baseEffect.act();
+        for(BonusEffect i:moreEffect){
+            i.act();
+        }
     }
 
+    public BonusEffect getBonusEffect() {
+        return baseEffect;
+    }
+
+    public void setBonusEffect(BonusEffect bonusEffect){
+        baseEffect=bonusEffect;
+    }
+
+    //中介者模式
+    private FPMediator mediator;
+
+    public FPMediator getMediator(){
+        return mediator;
+    }
+
+    public void setMediator(FPMediator mediator) {
+        this.mediator = mediator;
+    }
 }

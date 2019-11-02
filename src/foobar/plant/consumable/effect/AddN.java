@@ -11,6 +11,7 @@ public class AddN extends BaseEffect {
      * Default constructor
      */
     public AddN() {
+        this.description="Adding nitrogen. ";
     }
 
 }

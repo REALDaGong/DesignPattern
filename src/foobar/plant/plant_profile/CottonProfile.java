@@ -11,6 +11,8 @@ public class CottonProfile extends BasePlantProfile {
      * Default constructor
      */
     public CottonProfile() {
+        this.setName("Cotton");
+
     }
 
 }

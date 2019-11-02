@@ -1,7 +1,5 @@
 package foobar.plant.plant_entity;
 
-import java.util.*;
-
 import foobar.plant.farm.*;
 import foobar.plant.plant_profile.*;
 
@@ -24,7 +22,7 @@ public class SeedBag implements PlantingAction {
     /**
      * 
      */
-    private String description;
+    private String name;
 
     /**
      * 
@@ -37,6 +35,27 @@ public class SeedBag implements PlantingAction {
      */
     public void plantAt(Tile place) {
         // TODO implement here
+        place.plantSeed(this);
     }
 
+    public String getName(){
+        return seed.getName();
+    }
+
+    public  void setName(String name){
+        this.name=name;
+    }
+
+    public void setSeed(){
+        if(PlantProfileManager.getInstance().getPlantProfileWithName(name)!=null){
+            seed=PlantProfileManager.getInstance().getPlantProfileWithName(name);
+        }
+        else{
+            seed=PlantProfileManager.getInstance().generatePlantProfile(name);
+        }
+    }
+
+    public BasePlantProfile getProfile(){
+        return seed;
+    }
 }

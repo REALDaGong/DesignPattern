@@ -20,7 +20,7 @@ public class ShiDanLiFactory extends AbstractConsumableFactory {
      */
     public Pesticide getPesticide() {
         // TODO implement here
-        return null;
+        return new ShiP();
     }
 
     /**
@@ -28,7 +28,7 @@ public class ShiDanLiFactory extends AbstractConsumableFactory {
      */
     public Fertilizer getFertilizer() {
         // TODO implement here
-        return null;
+        return new ShiF();
     }
 
 }

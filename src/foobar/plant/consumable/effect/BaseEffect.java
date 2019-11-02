@@ -14,7 +14,7 @@ public class BaseEffect implements BonusEffect {
     }
 
     /**
-     * 
+     * 药剂的强度
      */
     public float Strength;
 
@@ -24,16 +24,17 @@ public class BaseEffect implements BonusEffect {
     public String keyword;
 
     /**
-     * 
+     * 药剂的效果
      */
     public String description;
 
     /**
-     * 
+     * 发挥作用
      */
     @Override
     public void act() {
         // TODO implement here
+        System.out.println(description);
     }
 
     /**

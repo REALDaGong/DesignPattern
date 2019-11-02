@@ -11,6 +11,7 @@ public class DamageHealth extends BaseEffect {
      * Default constructor
      */
     public DamageHealth() {
+        this.description="Health damage. ";
     }
 
 }

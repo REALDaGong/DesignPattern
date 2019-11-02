@@ -45,6 +45,8 @@ public class Planter implements PlantingAction {
      */
     public void plantAt(Tile place) {
         // TODO implement here
+        place.plow();
+        place.plantSeed(seeds);
     }
 
 }

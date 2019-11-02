@@ -13,4 +13,6 @@ public class JinF extends Fertilizer {
     public JinF() {
     }
 
+
+
 }

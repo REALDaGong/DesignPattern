@@ -11,6 +11,7 @@ public class Anamnesis extends BaseEffect {
      * Default constructor
      */
     public Anamnesis() {
+        this.description="Have amnesia. ";
     }
 
 }
