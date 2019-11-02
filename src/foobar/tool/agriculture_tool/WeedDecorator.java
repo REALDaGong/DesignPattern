@@ -3,7 +3,7 @@ import foobar.plant.plant_entity.BasePlant;
 import foobar.tool.Tool;
 import foobar.Receiver;
 
-public class WeedDecorator extends Tool {
+public class WeedDecorator extends BaseDecorator {
     private WeedTool weedTool;
 
     public WeedDecorator(WeedTool weedTool){
@@ -18,15 +18,18 @@ public class WeedDecorator extends Tool {
 
     @Override
     public void visit(Object basePlant){
-        if(getState() == 0){                //刀已经损坏
-            System.out.println("This knife is damaged. Need to be repaired or replaced");
+
+        weedTool.visit(basePlant);                  //割草刀除草
+
+        if(getState() == 0){                        //机器已经损坏
+            System.out.println("This machine is damaged. Need to be repaired or replaced");
             return;
         }
 
-        ((BasePlant)basePlant).pullWeed();          //割草刀除草
-        System.out.println("Successful!");
+        ((BasePlant)basePlant).pullWeed();          //割草机负责后续修剪
+        System.out.println("Shaved by machine successfully!");
 
-        //operation by knife
+        //operation by machine
         durability -= 1;
         setState();
     };
