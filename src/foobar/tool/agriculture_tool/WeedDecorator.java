@@ -30,7 +30,7 @@ public class WeedDecorator extends BaseDecorator {
         System.out.println("Shaved by machine successfully!");
 
         //operation by machine
-        durability -= 1;
+        durability -= 2;
         setState();
     };
 

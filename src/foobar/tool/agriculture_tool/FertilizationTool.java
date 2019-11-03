@@ -30,7 +30,7 @@ public class FertilizationTool extends Tool {
 
         System.out.println("Successful!");
 
-        durability -= 1;
+        durability -= 2;
         setState();
     }
 
