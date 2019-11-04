@@ -2,15 +2,15 @@
 
 
 
-# 搞快点: 11/ 5
+# 搞快点搞快点搞快点搞快点搞快点搞快点搞快点搞快点: 11/ 5
 
 - [x] 10/28
 - [x] 10/29
 - [x] 10/30
 - [x] 10/31
-- [ ] 11/1
-- [ ] 11/2
-- [ ] 11/3
+- [x] 11/1
+- [x] 11/2
+- [x] 11/3
 - [ ] 11/4
 - [ ] 11/5
 
@@ -22,19 +22,17 @@
 
 
 
-- [x] plant(no implement)
-- [x] animal(no implement)
-- [x] tool
-- [ ] building(coming soon)
-- [ ] person
-- [ ] product(pending?)
+- [x] plant(waiting for more test)
+- [x] animal(no implement????????????????????????????????????)
+- [x] tool(no test)
+- [x] building(no test)
+- [?] person
+- [x] product(no test)
 
 ## 最近的短期任务:
 
-* building部分需要person的具体实现
+* test!
 
-* 填好plant,animal的实现
-
-* product再改改？
+* 动物????????????
 
 * 文档谢谢
