@@ -1,116 +1,117 @@
 package foobar.building;
 
-import foobar.product.product_interface.*;
-import java.util.Vector;
-/** 这个文件是产品组重写的，要合并一下 */
-public class StoreHouse extends House implements Barnmethods {
+import foobar.building.base.Building;
+import foobar.plant.plant_entity.BasePlant;
+import foobar.plant.product.BaseProduct;
+
+import java.util.ArrayList;
+
+public class StoreHouse extends Building {
+    private ArrayList<BaseProduct> angelCotton = new ArrayList<BaseProduct>();
+    private ArrayList<BaseProduct> demonCotton = new ArrayList<BaseProduct>();
+    private ArrayList<BaseProduct> battlemelon = new ArrayList<BaseProduct>();
+
+    private ArrayList<BaseProduct> chicken = new ArrayList<BaseProduct>();
+    private ArrayList<BaseProduct> fish = new ArrayList<BaseProduct>();
+    private ArrayList<BaseProduct> frog = new ArrayList<BaseProduct>();
+    private ArrayList<BaseProduct> mutton = new ArrayList<BaseProduct>();
+    private ArrayList<BaseProduct> pork = new ArrayList<BaseProduct>();
 
 
-	public String name;
-	public int xlen;
-	public int ylen;
-	public int zlen;
-	public int capacity;
-	private Vector<BaseProduct> angleCotton;
-	private Vector<BaseProduct> demonCotton;
-	private Vector<BaseProduct> battleMelon;
-	private Vector<BaseProduct> chicken;
-	private Vector<BaseProduct> fish;
-	private Vector<BaseProduct> frog;
-	private Vector<BaseProduct> mutton;
-	private Vector<BaseProduct> pork;
+    @Override
+    public boolean add(Object object) {
+//        if (!(object instanceof BasePlant)) {
+//            System.out.println("Store House only can store Plant");
+//        }
+//        BasePlant plant = (BasePlant) object;
+//
+//        if (angelCotton.size() + demonCotton.size() + battlemelon.size() >= capacity) {
+//            System.out.println("Store House " + name + " is full");
+//            return false;
+//        }
+//
+//        switch (plant) {
+//            case "angelcotton":
+//                angelCotton.add(plant);
+//                break;
+//            case "demoncotton":
+//                demonCotton.add(plant);
+//                break;
+//            case "battlemelon":
+//                battlemelon.add(plant);
+//                break;
+//            default:
+//                System.out.println("Error Product");
+//                return false;
+//        }
+        return true;
+    }
 
-	public StoreHouse(){
-		this.angleCotton = new Vector<BaseProduct>();
-		this.demonCotton = new Vector<BaseProduct>();
-		this.battleMelon = new Vector<BaseProduct>();
-		this.chicken = new Vector<BaseProduct>();
-		this.fish = new Vector<BaseProduct>();
-		this.frog = new Vector<BaseProduct>();
-		this.mutton = new Vector<BaseProduct>();
-		this.pork = new Vector<BaseProduct>();
-	}
+    @Override
+    public boolean remove(Object object) {
+        return false;
+    }
 
-	public int getAngle() {
-		System.out.println("AngleCotton num:"+angleCotton.size());
-		return angleCotton.size();
-	}
+    @Override
+    public void show() {
+        showStore(angelCotton, "AngelCotton");
+        showStore(demonCotton, "DemonCotton");
+        showStore(battlemelon, "BattleMelon");
+    }
 
-	public int getDemon() {
-		System.out.println("DemonCotton num:"+demonCotton.size());
-		return demonCotton.size();
-	}
+    private void showStore(@org.jetbrains.annotations.NotNull ArrayList<BaseProduct> store, String store_name) {
+        if (store.isEmpty()) {
+            System.out.println("No" + store_name + "in Store House " + name);
+        } else {
+            System.out.println(store_name + " :" + store.size());
+        }
+    }
 
-	public int getBattle() {
-		System.out.println("BattleMelon num:"+battleMelon.size());
-		return battleMelon.size();
-	}
+    public void addPlant(BaseProduct product) {
+        switch(product.name){
+            case "anglecotton":
+                angelCotton.add(product);
+                System.out.println("AngleCotton upgrade");
+                break;
+            case "demoncotton":
+                demonCotton.add(product);
+                System.out.println("DemonCotton upgrade");
+                break;
+            case "battlemelon":
+                battlemelon.add(product);
+                System.out.println("BattleMelon upgrade");
+                break;
+            default:
+                System.out.println("Erro Plant");
+                break;
+        }
+    }
 
-	public int getChicken(){
-		System.out.println("chicken num:"+chicken.size());
-		return chicken.size();
-	}
-	public int getFish(){
-		System.out.println("fish num:"+fish.size());
-		return fish.size();
-	}
-	public int getFrog(){
-		System.out.println("frog num:"+frog.size());
-		return frog.size();
-	}
-	public int getMutton(){
-		System.out.println("mutton num:"+mutton.size());
-		return mutton.size();
-	}
-	public int getPork(){
-		System.out.println("pork num:"+pork.size());
-		return pork.size();
-	}
-
-	public void addAngle(BaseProduct plantProduct) {
-		this.angleCotton.add(plantProduct);
-		System.out.println("AngleCotton upgrade");
-	}
-
-	public void addDemon(BaseProduct plantProduct) {
-		this.demonCotton.add(plantProduct);
-		System.out.println("DemonCotton upgrade");
-	}
-
-	public void addBattle(BaseProduct plantProduct) {
-		this.battleMelon.add(plantProduct);
-		System.out.println("BattleMelon upgrade");
-	}
-
-	public void addChicken(BaseProduct baseProduct){
-		this.chicken.add(baseProduct);
-		System.out.println("Chicken upgrade");
-	}
-	public void addFish(BaseProduct baseProduct){
-		this.fish.add(baseProduct);
-		System.out.println("Fish upgrade");
-	}
-	public void addFrog(BaseProduct baseProduct){
-		this.frog.add(baseProduct);
-		System.out.println("Frog upgrade");
-	}
-	public void addMutton(BaseProduct baseProduct){
-		this.mutton.add(baseProduct);
-		System.out.println("Mutton upgrade");
-	}
-	public void addPork(BaseProduct baseProduct){
-		this.pork.add(baseProduct);
-		System.out.println("Pork upgrade");
-	}
-
-	@Override
-	public void addPlant(BaseProduct plantProduct) {
-
-	}
-
-	@Override
-	public void addAnimal(BaseProduct animalProduct) {
-
-	}
+    public void addAnimal(BaseProduct animal){
+        switch(animal.name){
+            case "chicken":
+                chicken.add(animal);
+                System.out.println("Chicken upgrade");
+                break;
+            case "fish":
+                fish.add(animal);
+                System.out.println("Fish upgrade");
+                break;
+            case "frog":
+                frog.add(animal);
+                System.out.println("Frog upgrade");
+                break;
+            case "mutton":
+                mutton.add(animal);
+                System.out.println("Mutton upgrade");
+                break;
+            case "pork":
+                pork.add(animal);
+                System.out.println("Pork upgrade");
+                break;
+            default:
+                break;
+        }
+    }
 
 }

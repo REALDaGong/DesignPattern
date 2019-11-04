@@ -1,7 +1,7 @@
 package foobar.building.builder;
 
-import foobar.building.building_abstract.Building;
-import foobar.building.building_abstract.BuildingBuilder;
+import foobar.building.base.Building;
+import foobar.building.base.BuildingBuilder;
 import foobar.building.Pasture;
 
 public class PastureBuilder extends BuildingBuilder {

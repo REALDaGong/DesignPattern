@@ -1,7 +1,7 @@
 package foobar.building.builder;
 
-import foobar.building.building_abstract.Building;
-import foobar.building.building_abstract.BuildingBuilder;
+import foobar.building.base.Building;
+import foobar.building.base.BuildingBuilder;
 import foobar.building.Farm;
 
 public class FarmBuilder extends BuildingBuilder {
@@ -18,13 +18,13 @@ public class FarmBuilder extends BuildingBuilder {
 
     @Override
     public void Prepare() {
-        System.out.println("New Farm " + farm.name + " foobar.Building is prepared");
+        System.out.println("New Farm " + farm.name + "  is prepared");
     }
 
     @Override
     public void SetCapacity() {
         farm.capacity = farm.xlen * farm.ylen;
-        System.out.println("New Farm " + farm.name + " can store " + farm.capacity + "foobar/plant");
+        System.out.println("New Farm " + farm.name + " can store " + farm.capacity + "plant");
     }
 
     @Override
