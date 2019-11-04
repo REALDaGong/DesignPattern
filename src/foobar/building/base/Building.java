@@ -13,9 +13,5 @@ public abstract class Building {
 
     }
 
-    abstract public boolean add(Object object);
-
-    abstract public boolean remove(Object object);
-
     abstract public void show();
 }
