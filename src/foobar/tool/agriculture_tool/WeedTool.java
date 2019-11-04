@@ -1,6 +1,7 @@
 package foobar.tool.agriculture_tool;
 import foobar.plant.plant_entity.BasePlant;
 import foobar.tool.Tool;
+import foobar.Receiver;
 
 public class WeedTool extends Tool {
 

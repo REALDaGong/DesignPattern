@@ -5,7 +5,10 @@ import foobar.tool.agriculture_tool.WeedDecorator;
 import foobar.tool.agriculture_tool.WeedTool;
 import foobar.tool.building_tool.DigProxy;
 import foobar.tool.building_tool.DigTool;
+import foobar.tool.toolkit.ToolKit;
+import foobar.tool.toolkit.command.ToolKitCommand;
 
+//测试tool中的设计模式
 public class Test {
     public void testProxy(){
         DigTool digTool = new DigTool();
@@ -49,11 +52,35 @@ public class Test {
         System.out.println(weedTool.getState());
     }
 
+    public void testStrategy(){
+        ToolKit tk = new ToolKit();
+        tk.visit(new BasePlant());
+        tk.setMyStrategy(2);
+        tk.visit(new BasePlant());
+        tk.setMyStrategy(1);
+        tk.visit(new BasePlant());
+    }
+
+    public void testCommandMemento(){
+        ToolKit tk = new ToolKit();
+        ToolKitCommand tkc = new ToolKitCommand(tk);
+        System.out.println(tk.getLevel());
+        tkc.execute();//1
+        System.out.println(tk.getLevel());
+        tkc.redo();//2
+        System.out.println(tk.getLevel());
+        tkc.undo();//3
+        System.out.println(tk.getLevel());
+    }
+
     public void startAllTest(){
         testPrototype();
         testProxy();
         testDecorator();
         testState();
+
+        testStrategy();
+        testCommandMemento();
     }
 
 }

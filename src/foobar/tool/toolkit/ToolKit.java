@@ -3,19 +3,28 @@ package foobar.tool.toolkit;
 import foobar.plant.consumable.item.Fertilizer;
 import foobar.plant.plant_entity.BasePlant;
 import foobar.tool.Tool;
+import foobar.tool.toolkit.command.Memento;
+import foobar.tool.toolkit.command.MementoReceiver;
 
-public class ToolKit extends Tool {
+public class ToolKit extends Tool implements MementoReceiver {
     private ToolKitStrategy myStrategy;
-    private Integer type;
     private Fertilizer fertilizer;
+    private Integer level;//工具箱等级
+    private Integer type;
 
-    ToolKit(){
+    public ToolKit(){
         super();
-        type = 1; // 1 代表浇水施肥，2 代表浇水除草, 默认取1
+        type = 0; // 1 代表浇水施肥，2 代表浇水除草, 默认取1
+        level = 1;//初始工具箱等级为1，而后升级必须调用ToolKitCommand进行升级操作。
         fertilizer = null;
     }
 
-    public void setMyStrategy(Integer type){
+    public Integer getLevel() {
+        return level;
+    }//获取当前工具箱等级：使用场景command
+
+
+    public void setMyStrategy(Integer type){//设置策略方案，调整指针指向:使用场景strategy
         this.type = type;
         if(type == 1){
             myStrategy = new WaterFertStrategy();//选择策略浇水施肥
@@ -32,13 +41,17 @@ public class ToolKit extends Tool {
     }
 
     @Override
-    public void visit(Object basePlant) {
+    public void visit(Object basePlant) {//visit方法:使用场景visitor
         if(type == 0){
-            System.out.println("No strategy, please set.");
+            System.out.println("classname:"+getClass()+
+                    "content:No strategy, please set."+
+                    "method:visit");
             return;
         }
         if(getState() == 0){                                //组合工具已经损坏
-            System.out.println("This toolkit is damaged. Need to be repaired or replaced");
+            System.out.println("classname:"+getClass()+
+                    "content:This toolkit is damaged. Need to be repaired or replaced"+
+                    "method:visit");
             return;
         }
         myStrategy.combinationTool(basePlant);//调用具体方法
@@ -46,4 +59,20 @@ public class ToolKit extends Tool {
         durability -= 1;
         setState();
     }
+    //添加了带有备忘录的命令升级功能，复杂调用，需要协调。
+    @Override
+    public Memento createMemento() {
+        return new Memento(level);
+    }//创建备忘录:使用场景memento
+
+    @Override
+    public void reinstallMemento(Memento memento) {
+        level = memento.getToolKitLevel();
+    }//恢复备忘录:使用场景memento
+
+    @Override
+    public void action() {//升级动作
+        level += 1;
+    }//具体的receiver工作:使用场景command
+
 }

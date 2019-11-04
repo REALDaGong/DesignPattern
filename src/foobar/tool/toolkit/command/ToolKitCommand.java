@@ -6,12 +6,12 @@ import java.awt.*;
 import java.util.Stack;
 
 public class ToolKitCommand implements Command {
-    private static Stack<ToolKitCommand> commandStack = new Stack<ToolKitCommand>();//命令栈
+    private static Stack<Command> commandStack = new Stack<Command>();//命令栈
     private static Stack<Memento> mementoStack = new Stack<Memento>();//备忘录栈
 
     private MementoReceiver receiver;//接受指令者
 
-    ToolKitCommand(MementoReceiver receiver){
+    public ToolKitCommand(MementoReceiver receiver){
         this.receiver = receiver;
     }
 
@@ -19,22 +19,26 @@ public class ToolKitCommand implements Command {
         return receiver;
     }
 
-    public static void Undo(){//对栈顶命令执行取消操作
+    public static void undo(){//对栈顶命令执行取消操作
         if(commandStack.empty()){
-            System.out.println("亲，已经没有指令了呢。");
+            System.out.println("classname:ToolKitCommand"+
+                    "content:My dear，no command left"+
+                    "method:undo");
             return;
         }
-        ToolKitCommand undoCommand = commandStack.pop();
+        ToolKitCommand undoCommand = (ToolKitCommand)commandStack.pop();
         Memento undoMemento = mementoStack.pop();
         undoCommand.getMementoReceiver().reinstallMemento(undoMemento);
     }
 
-    public static void Redo(){//重新执行栈顶命令
+    public static void redo(){//重新执行栈顶命令
         if(commandStack.empty()){
-            System.out.println("亲，没有指令可以重新执行呢。");
+            System.out.println("classname:ToolKitCommand"+
+                    "content:My dear，no command can be redo"+
+                    "method:redo");
             return;
         }
-        ToolKitCommand redoCommand = commandStack.peek();
+        ToolKitCommand redoCommand = (ToolKitCommand)commandStack.peek();
         redoCommand.execute();
     }
 
@@ -43,5 +47,8 @@ public class ToolKitCommand implements Command {
         mementoStack.push(receiver.createMemento());
         commandStack.push(this);
         receiver.action();
+        System.out.println("classname:"+getClass()+
+                "content:Upgrade success!"+
+                "method:execute");
     }
 }

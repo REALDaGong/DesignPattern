@@ -1,5 +1,6 @@
 package foobar.tool.building_tool;
 
+import foobar.Building.Farm;
 import foobar.tool.Tool;
 
 public class DigProxy extends Tool {
