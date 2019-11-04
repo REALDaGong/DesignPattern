@@ -7,7 +7,6 @@ import foobar.product.product_interface.BaseProduct;
 import java.util.ArrayList;
 
 public class Pasture extends Building {
-    //  TODO 存动物的数组
     ArrayList<Chicken> chickens = new ArrayList<Chicken>();
     ArrayList<Fish> fishs = new ArrayList<Fish>();
     ArrayList<Frog> frogs = new ArrayList<Frog>();
@@ -41,6 +40,7 @@ public class Pasture extends Building {
         }
         return false;
     }
+
 
     public void breed() {
         for (Chicken chicken : chickens) {
@@ -128,38 +128,48 @@ public class Pasture extends Building {
     }
 
     public ArrayList<BaseProduct> produceWithDeath() {
+
         ArrayList<BaseProduct> products = new ArrayList<BaseProduct>();
-        for (Chicken chicken : chickens) {
-            products.add(chicken.produceWithDeath());
-        }
-
-        for (Fish fish : fishs) {
-            products.add(fish.produceWithDeath());
-        }
-
-        for (Frog frog : frogs) {
-            products.add(frog.produceWithDeath());
-        }
-
-        for (Pig pig : pigs) {
-            products.add(pig.produceWithDeath());
-        }
-
-        for (Sheep sheep : sheeps) {
-            products.add(sheep.produceWithDeath());
-        }
+        ProduceFacade facade = new ProduceFacade(this);
+        products=facade.produceWithDeathAll();
+//        for (Chicken chicken : chickens) {
+//            products.add(chicken.produceWithDeath());
+//            chickens.remove(chicken);
+//        }
+//
+//        for (Fish fish : fishs) {
+//            products.add(fish.produceWithDeath());
+//            fishs.remove(fish);
+//        }
+//
+//        for (Frog frog : frogs) {
+//            products.add(frog.produceWithDeath());
+//            frogs.remove(frog);
+//        }
+//
+//        for (Pig pig : pigs) {
+//            products.add(pig.produceWithDeath());
+//            pigs.remove(pig);
+//        }
+//
+//        for (Sheep sheep : sheeps) {
+//            products.add(sheep.produceWithDeath());
+//            sheeps.remove(sheep);
+//        }
         return products;
     }
 
     public ArrayList<BaseProduct> produceWithoutDeath() {
         ArrayList<BaseProduct> products = new ArrayList<BaseProduct>();
-        for (Chicken chicken : chickens) {
-            products.add(chicken.produceWithoutDeath());
-        }
-
-        for (Sheep sheep : sheeps) {
-            products.add(sheep.produceWithDeath());
-        }
+        ProduceFacade facade = new ProduceFacade(this);
+        products=facade.produceWithoutDeathAll();
+//        for (Chicken chicken : chickens) {
+//            products.add(chicken.produceWithoutDeath());
+//        }
+//
+//        for (Sheep sheep : sheeps) {
+//            products.add(sheep.produceWithDeath());
+//        }
 
         return products;
     }
