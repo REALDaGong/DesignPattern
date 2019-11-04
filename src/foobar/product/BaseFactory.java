@@ -1,6 +1,5 @@
 package foobar.product;
 
-import foobar.Building.StoreHouse;
 import foobar.product.product_interface.BaseProduct;
 
 /**

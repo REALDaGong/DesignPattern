@@ -1,8 +1,5 @@
 package foobar.tool;
 
-import foobar.Receiver;
-import foobar.plant.plant_entity.BasePlant;
-
 public abstract class Tool {
     protected int durability;   //工具的耐久度
     protected int state;        //工具的状态：1为可用，0为不可用      state模式

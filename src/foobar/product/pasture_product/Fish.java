@@ -1,8 +1,6 @@
 package foobar.product.pasture_product;
 
 import foobar.product.product_interface.BaseProduct;
-import foobar.Building.StoreHouse;
-import foobar.product.proxy.AnimalProxy;
 
 public class Fish extends BaseProduct {
     protected int SHELFLIFE;

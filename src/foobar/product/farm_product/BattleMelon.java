@@ -1,8 +1,6 @@
 package foobar.product.farm_product;
 
 import foobar.product.product_interface.BaseProduct;
-import foobar.Building.StoreHouse;
-import foobar.product.proxy.PlantProxy;
 
 public class BattleMelon extends BaseProduct {
     protected int SHELFLIFE;

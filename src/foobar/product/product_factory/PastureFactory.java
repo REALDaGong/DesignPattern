@@ -3,7 +3,6 @@ package foobar.product.product_factory;
 import foobar.product.BaseFactory;
 import foobar.product.product_interface.*;
 import foobar.product.pasture_product.*;
-import foobar.Building.StoreHouse;
 
 public class PastureFactory extends BaseFactory {
     @Override

@@ -1,6 +1,6 @@
 package foobar.product.proxy;
 
-import foobar.Building.StoreHouse;
+import foobar.building.StoreHouse;
 import foobar.product.product_interface.*;
 import foobar.product.adapter.Adapter;
 

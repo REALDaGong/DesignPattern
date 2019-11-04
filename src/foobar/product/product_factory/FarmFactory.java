@@ -1,7 +1,6 @@
 package foobar.product.product_factory;
 
 import foobar.product.BaseFactory;
-import foobar.Building.StoreHouse;
 import foobar.product.product_interface.*;
 import foobar.product.farm_product.*;
 
