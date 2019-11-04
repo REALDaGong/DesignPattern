@@ -3,9 +3,9 @@ package foobar.plant.plant_entity;
 import java.util.*;
 
 /**
- * 
+ * 建造者模式
  */
-public class ConcretePrefixConstructor implements QuailtyConstructor {
+public abstract class ConcretePrefixConstructor implements QuailtyConstructor {
 
     /**
      * Default constructor
@@ -16,34 +16,28 @@ public class ConcretePrefixConstructor implements QuailtyConstructor {
     /**
      * 
      */
-    private Prefix result;
+    protected Prefix result;
 
     /**
      * 
      */
-    public void build1() {
-        // TODO implement here
-    }
+    public abstract void build1();
 
     /**
      * 
      */
-    public void build2() {
-        // TODO implement here
-    }
+    public abstract void build2();
 
     /**
      * 
      */
-    public void build3() {
-        // TODO implement here
-    }
+    public abstract void build3();
 
     /**
      * 
      */
-    public void getResult() {
-        // TODO implement here
+    public Prefix getResult() {
+        return result;
     }
 
 }

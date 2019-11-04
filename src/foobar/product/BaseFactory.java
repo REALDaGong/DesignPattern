@@ -1,7 +1,7 @@
 package foobar.product;
 
-import foobar.product.product_interface.BaseProduct;
 import foobar.Building.StoreHouse;
+import foobar.product.product_interface.BaseProduct;
 
 /**
  * 
@@ -14,8 +14,8 @@ public abstract class BaseFactory {
     public BaseFactory() {
     }
 
-    public abstract BaseProduct getPlant(String plant, StoreHouse store);
-    public abstract BaseProduct getAnimal(String animal, StoreHouse store);
+    public abstract BaseProduct getPlant(String plant);
+    public abstract BaseProduct getAnimal(String animal);
 
 
 }

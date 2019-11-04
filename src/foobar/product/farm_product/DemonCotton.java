@@ -2,16 +2,17 @@ package foobar.product.farm_product;
 
 import foobar.product.product_interface.BaseProduct;
 import foobar.Building.StoreHouse;
+import foobar.product.proxy.PlantProxy;
 
 public class DemonCotton extends BaseProduct {
     protected int SHELFLIFE;
     protected String NAME;
 
-    public DemonCotton(StoreHouse store) {
+    public DemonCotton() {
         this.NAME = "demoncotton";
         this.SHELFLIFE = 10;
-        PlantProxy aproxy = new PlantProxy(store);
-        aproxy.addPlant(this);
+        //PlantProxy aproxy = new PlantProxy(store);
+        //aproxy.addPlant(this);
     }
     public String getname(){
         return this.NAME;

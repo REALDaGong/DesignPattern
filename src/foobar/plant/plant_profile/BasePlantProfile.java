@@ -3,108 +3,38 @@ package foobar.plant.plant_profile;
 import java.util.*;
 
 import foobar.plant.period.*;
+import foobar.plant.plant_entity.BasePlant;
 import foobar.product.drop_list.*;
+import foobar.product.product_interface.BaseProduct;
 
 /**
  * 一种植物的基本属性的基类
  */
-public class BasePlantProfile {
+public abstract class BasePlantProfile {
 
     /**
      * Default constructor
      */
-    public BasePlantProfile() {
+    protected ProductDropList product=null;
+
+    public abstract String getName();
+
+    public abstract Period getFirstPeriod();
+
+    public abstract int getThirsty();
+
+    public abstract int getHealth();
+
+    public abstract ProductDropList getDropList();
+    /**
+     * @return 一个列表，里面是收获成果
+     */
+    public ArrayList<BaseProduct> getProduct() {
+        if (product==null){
+            System.out.println("no product aligned to the plant.");
+            return new ArrayList<BaseProduct>();
+        }
+        ArrayList<BaseProduct> list=product.getDrop();
+        return list;
     }
-
-    /**
-     * 
-     */
-    private String name;
-
-    /**
-     * 
-     */
-    private Period firstPeriod;
-
-    /**
-     * 
-     */
-    private int thirsty;
-
-    /**
-     * 
-     */
-    private int health;
-
-    /**
-     * 
-     */
-    private ProductDropList product;
-
-    /**
-     * 
-     */
-    private Set<Integer> availableTile;
-
-
-    /**
-     * @return
-     */
-    public String getName() {
-        // TODO implement here
-        return name;
-    }
-
-    public void setName(String name){
-        this.name=name;
-    }
-    /**
-     * @return
-     */
-    public int getCurrentPeriod() {
-        // TODO implement here
-        return 0;
-    }
-
-    /**
-     * @return
-     */
-    public int getThirsty() {
-        // TODO implement here
-        return 0;
-    }
-
-    /**
-     * @return
-     */
-    public int getHealth() {
-        // TODO implement here
-        return 0;
-    }
-
-    /**
-     * @return
-     */
-    public int getProduct() {
-        // TODO implement here
-        return 0;
-    }
-
-    /**
-     * @param id 
-     * @return
-     */
-    public boolean IsAvailableAt(int id) {
-        // TODO implement here
-        return false;
-    }
-
-    /**
-     * @param list
-     */
-    public void addDropList(ProductDropList list) {
-        // TODO implement here
-        this.product=list;
-    }
-
 }

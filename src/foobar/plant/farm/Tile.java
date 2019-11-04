@@ -2,14 +2,18 @@ package foobar.plant.farm;
 
 import java.util.*;
 
+import foobar.plant.Receiver;
 import foobar.plant.consumable.effect.*;
 import foobar.plant.consumable.item.*;
 import foobar.plant.plant_entity.*;
+import foobar.tool.Tool;
 
 /**
  * 植物所在的一小块田地
+ * 应用了观察者模式(addFrerti)，访问者模式(tool)
+ *
  */
-public class Tile implements Plantable{
+public class Tile implements Plantable, Receiver {
 
     /**
      * Default constructor
@@ -20,17 +24,17 @@ public class Tile implements Plantable{
     /**
      * 
      */
-    public int nitrogen;
+    public int nitrogen=0;
 
     /**
      * 
      */
-    public int phosphor;
+    public int phosphor=0;
 
     /**
      * 
      */
-    public int kalium;
+    public int kalium=0;
 
     /**
      * 
@@ -38,64 +42,66 @@ public class Tile implements Plantable{
     public Set<BonusEffect> magicEffect;
 
     /**
-     * 
+     * 其中的植物
      */
-    public BasePlant plantSlot;
+    public BasePlant plantSlot=null;
 
     //地块的状态（耕没耕地
     private int plowState=0;
 
-    // 地中种植的plant
-    private ArrayList<BasePlant> myplant=new ArrayList<BasePlant>();
     /**
      * notifyObserver
      * @param type
      */
     public void addFertilizer(Fertilizer type) {
-        // TODO implement here
-        for(BasePlant i : myplant)
-        {
-            i.FertilizerAdded(type);
-        }
-        System.out.println(type+"has been added!");
-    }
 
-    /**
-     * addObserver
-     * @param plant
-     */
-    public void addPlant(BasePlant plant) {
-        // TODO implement here
-        myplant.add(plant);
-        System.out.println(plant+"has been added.");
+
+            plantSlot.FertilizerAdded(type);
+            actAllFerPes();
+        System.out.println(type+"has been added!");
     }
 
     /**
      * 耕地
      */
-    public void plow() {
+    public int plow() {
         // TODO implement here
-        plowState=1;
-        System.out.println("The tile has been plowed.");
+
+
+        if (plowState==1) {
+            System.out.println("The tile has been plowed.");
+            return 1;
+        }else{
+            System.out.println("plow!");
+            plowState=1;
+            return 0;
+        }
+
     }
 
-    //种植种子
-    public void plantSeed(SeedBag seed){
+    //种植植物
+    public void plantSeed(BasePlant seed){
         if(plowState==0){
             System.out.println("Please plow first!");
         }
         else{
-            BasePlant basePlant=new BasePlant();
-            basePlant.setName(seed.getName());
-            basePlant.setProfile(seed.getProfile());
+            plantSlot=seed;
         }
     }
 
     //调用中介者，施加所有种类药剂
-    public void actAllFerPes()
+    private void actAllFerPes()
     {
-        FPMediator fpMediator=new FPMediator();
-        fpMediator.createMediator();
-        fpMediator.actAll();
+        FMediator fMediator=new FMediator(plantSlot);
+        fMediator.actAll();
+    }
+
+    @Override
+    public void accept(Tool tool) {
+        //if empty?
+        if (plantSlot==null) {
+            System.out.println("farm:Tile:plantSlot is null");
+        }
+        tool.visit(this);
     }
 }

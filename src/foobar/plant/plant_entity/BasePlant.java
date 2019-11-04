@@ -2,86 +2,93 @@ package foobar.plant.plant_entity;
 
 import java.util.*;
 
+import foobar.plant.Receiver;
+import foobar.plant.consumable.effect.PMediator;
 import foobar.plant.consumable.item.*;
 import foobar.plant.farm.*;
 import foobar.plant.period.*;
 import foobar.plant.plant_profile.*;
 import foobar.product.product_interface.BaseProduct;
+import foobar.tool.Tool;
 
 
 /**
- * 具体植物的基类
+ * 具体植物的基类，内含享元模式，访问者模式，观察者模式
  */
-public class BasePlant implements AddFertilizerEventObserver {
+
+
+//todo:收获后自己消失
+public class BasePlant implements AddFertilizerEventObserver, Receiver {
 
     /**
      * Default constructor
      */
-    public BasePlant() {
+    public BasePlant(BasePlantProfile profile,String name) {
+        this.Profile=profile;
+        this.name=name;
     }
 
     /**
-     * 
+     *  植物的基本属性
      */
     private BasePlantProfile Profile;
 
     /**
-     * 
+     *  目前的状态
      */
-    private Period Currentperiod;
+    private Period Currentperiod=new Seed();
 
     /**
-     * 
+     *  生命值
      */
     private int CurrentHealth;
 
     /**
-     * 
+     *  干枯值
      */
     private int CurrentThirsty;
 
     private int currentWeed;
     /**
-     * 
+     *  杂草量
      */
     private String name;
-
-    private PlantState state=new PlantState();
 
     /**
      * @return
      */
     public void grow() {
         // TODO implement here
-        if(state.getState().equals("seeding"))
-        {
-            state.setState("ripen");
-            System.out.println("Plant is ripen!");
+        if(Currentperiod.getNextPeriod()!=null){
+            Currentperiod=Currentperiod.getNextPeriod();
+            System.out.println("plant grow! period desc:"+Currentperiod.getDescription());
         }
-        else if(state.getState().equals("ripen"))
-        {
-            System.out.println("The plant has already been ripe!");
-        }
-    }
 
-    //state模式，幼苗状态下处理调用killed，成熟状态下调用harves
-    public ArrayList<BaseProduct> disploy(){
-        if(state.getState().equals("seeding")) {
-            state.killed();
-            return null;
-        }
-        else if(state.getState().equals("ripen")){
-            state.harvest();
-            return  null;
-        }
-        return null;
     }
+    //收获植物，如果没长好就返回空数组
+    public ArrayList<BaseProduct> harvest(){
+        if(this.riped()){
+            System.out.println("plant harvest!");
+            return Profile.getProduct();
 
+        }
+        return new ArrayList<BaseProduct>();
+    }
+     private boolean riped(){
+        if (Currentperiod.getNextPeriod() !=null){
+            return false;
+        }
+        return true;
+     }
     /**
      * @param pesticideType
      */
+    //中介者模式，中介者负责“翻译”所有效果
     public void pesticided(Pesticide pesticideType) {
         // TODO implement here
+        PMediator med=new PMediator(this);
+        med.addPesticide(pesticideType);
+        med.actAll();
     }
 
     /**
@@ -90,14 +97,15 @@ public class BasePlant implements AddFertilizerEventObserver {
      * @return
      */
     public int watered(int water) {
-        // TODO implement here
+
+
         System.out.println("The Plant has been watered!");
-        return 0;
+        return 1;
     }
 
 
     /**
-     * 
+     *  这个方法会监听到土地被施肥后使用.
      */
     public void FertilizerAdded(Fertilizer type) {
         // TODO implement here
@@ -106,18 +114,21 @@ public class BasePlant implements AddFertilizerEventObserver {
     }
 
     public void pullWeed(){
-        System.out.println("The weed has been pulled!");
+        currentWeed=0;
+        System.out.println("The WEEB has been pulled!");
     }
 
     public String getName(){
         return name;
     }
 
-    public void setProfile(BasePlantProfile basePlantProfile){
-        Profile=basePlantProfile;
+    //访问者模式的accept.
+    @Override
+    public void accept(Tool tool) {
+        tool.visit(this);
     }
 
-   public void setName(String name){
-        this.name=name;
-   }
+    public BasePlant clone(){
+        return new BasePlant(this.Profile,this.name);
+    }
 }

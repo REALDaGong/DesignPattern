@@ -4,58 +4,31 @@ import foobar.plant.farm.*;
 import foobar.plant.plant_profile.*;
 
 /**
- * 建造者模式
+ * 内部的prefix实现了建造者模式
  */
-public class SeedBag implements PlantingAction {
+public abstract class SeedBag implements PlantingAction {
+
+    protected Prefix prefix=new Prefix();
 
     /**
-     * Default constructor
+     * @param place :土地,如果是整片田就全种上了
+     * @return BasePlant :被种下的植物
      */
-    public SeedBag() {
-    }
-
-    /**
-     * 
-     */
-    private BasePlantProfile seed;
-
-    /**
-     * 
-     */
-    private String name;
-
-    /**
-     * 
-     */
-    private int quailtyControl;
-
-
-    /**
-     * @param place
-     */
-    public void plantAt(Tile place) {
-        // TODO implement here
-        place.plantSeed(this);
+    public BasePlant plantAt(Plantable place) {
+        BasePlant basePlant=getPlant();
+        place.plantSeed(basePlant);
+        return basePlant;
     }
 
     public String getName(){
-        return seed.getName();
+        return getProfile().getName();
+    }
+    public abstract BasePlantProfile getProfile();
+    public void setPrefix(Prefix prefix){
+        prefix=new Prefix();
     }
 
-    public  void setName(String name){
-        this.name=name;
-    }
-
-    public void setSeed(){
-        if(PlantProfileManager.getInstance().getPlantProfileWithName(name)!=null){
-            seed=PlantProfileManager.getInstance().getPlantProfileWithName(name);
-        }
-        else{
-            seed=PlantProfileManager.getInstance().generatePlantProfile(name);
-        }
-    }
-
-    public BasePlantProfile getProfile(){
-        return seed;
+    private BasePlant getPlant(){
+        return new BasePlant(getProfile(),prefix.All()+getProfile().getName());
     }
 }

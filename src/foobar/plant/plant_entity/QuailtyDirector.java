@@ -3,18 +3,12 @@ package foobar.plant.plant_entity;
 import java.util.*;
 
 /**
- * 
+ * 建造者模式
  */
 public class QuailtyDirector {
 
     /**
-     * Default constructor
-     */
-    public QuailtyDirector() {
-    }
-
-    /**
-     * 
+     * 指定的建造者
      */
     private QuailtyConstructor builder;
 
@@ -24,14 +18,17 @@ public class QuailtyDirector {
      */
     public Prefix construct() {
         // TODO implement here
-        return null;
+        builder.build1();
+        builder.build2();
+        builder.build3();
+        return builder.getResult();
     }
 
     /**
      * @param qC
      */
     public void setConstructor(QuailtyConstructor qC) {
-        // TODO implement here
+        builder=qC;
     }
 
 }

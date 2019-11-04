@@ -7,25 +7,25 @@ import foobar.Building.StoreHouse;
 
 public class PastureFactory extends BaseFactory {
     @Override
-    public BaseProduct getAnimal(String animalName, StoreHouse store){
+    public BaseProduct getAnimal(String animalName){
         if(animalName == null){
             return null;
         }
         if(animalName.equalsIgnoreCase("Chicken")){
-            return new Chicken(store);
+            return new Chicken();
         } else if(animalName.equalsIgnoreCase("Fish")){
-            return new Fish(store);
+            return new Fish();
         } else if(animalName.equalsIgnoreCase("Frog")){
-            return new Frog(store);
+            return new Frog();
         } else if(animalName.equalsIgnoreCase("Mutton")){
-            return new Mutton(store);
+            return new Mutton();
         } else if(animalName.equalsIgnoreCase("Pork")){
-            return new Pork(store);
+            return new Pork();
         }
         return null;
     }
     @Override
-    public BaseProduct getPlant(String plant, StoreHouse store){
+    public BaseProduct getPlant(String plant){
         return null;
     }
 }

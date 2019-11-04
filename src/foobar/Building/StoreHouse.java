@@ -31,6 +31,42 @@ public class StoreHouse extends House implements Barnmethods {
 		this.pork = new Vector<BaseProduct>();
 	}
 
+	public int getAngle() {
+		System.out.println("AngleCotton num:"+angleCotton.size());
+		return angleCotton.size();
+	}
+
+	public int getDemon() {
+		System.out.println("DemonCotton num:"+demonCotton.size());
+		return demonCotton.size();
+	}
+
+	public int getBattle() {
+		System.out.println("BattleMelon num:"+battleMelon.size());
+		return battleMelon.size();
+	}
+
+	public int getChicken(){
+		System.out.println("chicken num:"+chicken.size());
+		return chicken.size();
+	}
+	public int getFish(){
+		System.out.println("fish num:"+fish.size());
+		return fish.size();
+	}
+	public int getFrog(){
+		System.out.println("frog num:"+frog.size());
+		return frog.size();
+	}
+	public int getMutton(){
+		System.out.println("mutton num:"+mutton.size());
+		return mutton.size();
+	}
+	public int getPork(){
+		System.out.println("pork num:"+pork.size());
+		return pork.size();
+	}
+
 	public void addAngle(BaseProduct plantProduct) {
 		this.angleCotton.add(plantProduct);
 		System.out.println("AngleCotton upgrade");
@@ -65,6 +101,16 @@ public class StoreHouse extends House implements Barnmethods {
 	public void addPork(BaseProduct baseProduct){
 		this.pork.add(baseProduct);
 		System.out.println("Pork upgrade");
+	}
+
+	@Override
+	public void addPlant(BaseProduct plantProduct) {
+
+	}
+
+	@Override
+	public void addAnimal(BaseProduct animalProduct) {
+
 	}
 
 }

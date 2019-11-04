@@ -26,6 +26,6 @@ public interface QuailtyConstructor {
     /**
      * 
      */
-    public void getResult();
+    public Prefix getResult();
 
 }

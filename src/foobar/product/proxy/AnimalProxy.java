@@ -12,6 +12,11 @@ public class AnimalProxy extends Adapter {
     }
 
     @Override
+    public void addPlant(BaseProduct plantProduct) {
+
+    }
+
+    @Override
     public void addAnimal(BaseProduct animalProduct) {
         this.myshop.addAnimal(animalProduct);
     }

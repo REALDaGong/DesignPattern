@@ -67,9 +67,15 @@ public class ProductDropList implements ProductIterable, Implementor {
     /**
      * @return
      */
-    public Set<Object> getDrop() {
+    public ArrayList<BaseProduct> getDrop() {
         // TODO implement here
-        return null;
+        ArrayList<BaseProduct> list=new ArrayList<BaseProduct>();
+        for (Pair<BaseProduct,Float> productFloatPair:productList) {
+            if(Math.random()<productFloatPair.getValue()){
+                list.add(productFloatPair.getKey());
+            }
+        }
+        return list;
     }
 
     /**
@@ -87,5 +93,11 @@ public class ProductDropList implements ProductIterable, Implementor {
         // TODO implement here
         productList.remove(obj);
     }
-
+    public ProductDropList clone(){
+        ProductDropList returnValue=new ProductDropList();
+        for (Pair<BaseProduct,Float> i:productList) {
+            returnValue.add(i);
+        }
+        return returnValue;
+    }
 }

@@ -12,13 +12,30 @@ public class Pesticide {
     /**
      * Default constructor
      */
-    public Pesticide() {
+
+    public Pesticide(String brand,int size) {
+        this.brand=brand;
+        this.size=size;
+        this.description="没有描述";
+        this.baseEffect=new BaseEffect();
+    }
+    public Pesticide(String brand,int size,String description) {
+        this.brand=brand;
+        this.size=size;
+        this.description=description;
+        this.baseEffect=new BaseEffect();
+    }
+    public Pesticide(String brand,int size,String description,BonusEffect effect) {
+        this.brand=brand;
+        this.size=size;
+        this.description=description;
+        this.baseEffect=effect;
     }
 
     /**
      * 
      */
-    private ArrayList<BaseEffect> moreEffect=new ArrayList<BaseEffect>();
+    private ArrayList<BonusEffect> moreEffect=new ArrayList<BonusEffect>();
 
     /**
      * 
@@ -44,8 +61,8 @@ public class Pesticide {
     /**
      * @param effect
      */
-    public void addEffect(BaseEffect effect) {
-        // TODO implement here
+    public void addEffect(BonusEffect effect) {
+
         moreEffect.add(effect);
     }
 
@@ -53,29 +70,21 @@ public class Pesticide {
      *
      */
     public void act() {
-        // TODO implement here
+
         baseEffect.act();
         for(BonusEffect i:moreEffect){
             i.act();
         }
     }
 
-    public BonusEffect getBonusEffect() {
-        return baseEffect;
+    public ArrayList<BonusEffect> getEffect() {
+        ArrayList<BonusEffect> output=moreEffect;
+        output.add(baseEffect);
+        return output;
     }
 
     public void setBonusEffect(BonusEffect bonusEffect){
         baseEffect=bonusEffect;
     }
 
-    //中介者模式
-    private FPMediator mediator;
-
-    public FPMediator getMediator(){
-        return mediator;
-    }
-
-    public void setMediator(FPMediator mediator) {
-        this.mediator = mediator;
-    }
 }

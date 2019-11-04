@@ -2,16 +2,17 @@ package foobar.product.farm_product;
 
 import foobar.product.product_interface.BaseProduct;
 import foobar.Building.StoreHouse;
+import foobar.product.proxy.PlantProxy;
 
 public class AngleCotton extends BaseProduct {
     protected int SHELFLIFE;
     protected String NAME;
 
-    public AngleCotton(StoreHouse store) {
+    public AngleCotton() {
         this.NAME = "anglecotton";
         this.SHELFLIFE = 10;
-        PlantProxy aproxy = new PlantProxy(store);
-        aproxy.addPlant(this);
+        //PlantProxy aproxy = new PlantProxy(store);
+        //aproxy.addPlant(this);
     }
     @Override
     public String getname(){

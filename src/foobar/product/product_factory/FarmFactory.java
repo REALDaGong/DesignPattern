@@ -11,22 +11,22 @@ public class FarmFactory extends BaseFactory {
     public int demonCotton = 0;
 
     @Override
-    public BaseProduct getPlant(String plantName, StoreHouse store){
+    public BaseProduct getPlant(String plantName){
         if(plantName == null){
             return null;
         }
         if(plantName.equalsIgnoreCase("AngleCotton")){
-            return new AngleCotton(store);
+            return new AngleCotton();
         } else if(plantName.equalsIgnoreCase("DemonCotton")){
-            return new DemonCotton(store);
+            return new DemonCotton();
         } else if(plantName.equalsIgnoreCase("BattleMelon")){
-            return new BattleMelon(store);
+            return new BattleMelon();
         }
         return null;
     }
 
     @Override
-    public BaseProduct getAnimal(String animal, StoreHouse store){
+    public BaseProduct getAnimal(String animal){
         return null;
     }
 }

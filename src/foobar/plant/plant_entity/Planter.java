@@ -1,18 +1,18 @@
 package foobar.plant.plant_entity;
 
-import java.util.*;
-
 import foobar.plant.farm.*;
 
 /**
- * 
+ * 代理模式,tile可以直接被种，但是需要犁地，这个可以帮你犁，耶
  */
 public class Planter implements PlantingAction {
 
     /**
      * Default constructor
      */
-    public Planter() {
+    public Planter(SeedBag fillWith,Tile plantAt) {
+        seeds=fillWith;
+        goodtile=plantAt;
     }
 
     /**
@@ -28,25 +28,29 @@ public class Planter implements PlantingAction {
     /**
      * @return
      */
-    public Tile beforePlanting() {
-        // TODO implement here
+    private Tile beforePlanting() {
+        System.out.println("before planting..");
+        goodtile.plow();
         return null;
     }
 
     /**
      * 
      */
-    public void afterPlanting() {
-        // TODO implement here
+    private void afterPlanting() {
+        System.out.println("after planting..");
     }
 
     /**
      * @param place
+     * @return
      */
-    public void plantAt(Tile place) {
+    public BasePlant plantAt(Plantable place) {
         // TODO implement here
-        place.plow();
-        place.plantSeed(seeds);
+        beforePlanting();
+        BasePlant plant=seeds.plantAt(goodtile);
+        afterPlanting();
+        return plant;
     }
 
 }

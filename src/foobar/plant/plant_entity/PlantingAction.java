@@ -1,7 +1,5 @@
 package foobar.plant.plant_entity;
 
-import java.util.*;
-
 import foobar.plant.farm.*;
 
 /**
@@ -11,7 +9,8 @@ public interface PlantingAction {
 
     /**
      * @param place
+     * @return
      */
-    public void plantAt(Tile place);
+    public BasePlant plantAt(Plantable place);
 
 }

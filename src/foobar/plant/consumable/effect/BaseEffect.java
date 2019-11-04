@@ -3,7 +3,7 @@ package foobar.plant.consumable.effect;
 import java.util.*;
 
 /**
- * 
+ *  用作桥接模式
  */
 public class BaseEffect implements BonusEffect {
 
@@ -19,7 +19,7 @@ public class BaseEffect implements BonusEffect {
     public float Strength;
 
     /**
-     * 
+     * 药剂的关键词，没有用处，出处可见B社游戏
      */
     public String keyword;
 
@@ -33,7 +33,6 @@ public class BaseEffect implements BonusEffect {
      */
     @Override
     public void act() {
-        // TODO implement here
         System.out.println(description);
     }
 
