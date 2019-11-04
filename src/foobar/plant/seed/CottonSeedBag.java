@@ -19,4 +19,5 @@ public class CottonSeedBag extends SeedBag {
     public void setPrefix(Prefix prefix){
         this.prefix=prefix;
     }
+
 }

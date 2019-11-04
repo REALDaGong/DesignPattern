@@ -33,33 +33,33 @@ public class Pesticide {
     }
 
     /**
-     * 
+     * "附加效果"
      */
     private ArrayList<BonusEffect> moreEffect=new ArrayList<BonusEffect>();
 
     /**
-     * 
+     * 这个东西的量有多大（未使用）
      */
     private int size;
 
     /**
-     * 
+     * 牌子
      */
     private String brand;
 
     /**
-     * 
+     * 描述
      */
     private String description;
 
     /**
-     * 
+     * 基础效果
      */
     private BonusEffect baseEffect;
 
 
     /**
-     * @param effect
+     * @param effect 加入一种效果到附加效果上
      */
     public void addEffect(BonusEffect effect) {
 
@@ -67,7 +67,7 @@ public class Pesticide {
     }
 
     /**
-     *
+     *发挥作用，目前只是输出所有效果的描述
      */
     public void act() {
 
@@ -77,14 +77,20 @@ public class Pesticide {
         }
     }
 
+    //返回这个化肥的所有效果
     public ArrayList<BonusEffect> getEffect() {
         ArrayList<BonusEffect> output=moreEffect;
         output.add(baseEffect);
         return output;
     }
 
+    //设置这个化肥的基础效果
     public void setBonusEffect(BonusEffect bonusEffect){
         baseEffect=bonusEffect;
     }
 
+    //获得这个化肥的品牌描述
+    public String getBrand(){
+        return brand;
+    }
 }

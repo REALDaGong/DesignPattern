@@ -19,9 +19,12 @@ public class CottonSeedsFactory extends SeedsFactory {
     }
 
     @Override
+    //产生一个玉米种子
     public SeedBag produceSeeds() {
         return new CottonSeedBag();
     }
+
+    //产生一个特殊品质的玉米
     public SeedBag produceSeedsWithSpecialQuailty(QuailtyConstructor quality) {
         QuailtyDirector qD =new QuailtyDirector();
         qD.setConstructor(quality);

@@ -8,7 +8,6 @@ import foobar.plant.farm.*;
 public interface PlantingAction {
 
     /**
-     * @param place
      * @return
      */
     public BasePlant plantAt(Plantable place);

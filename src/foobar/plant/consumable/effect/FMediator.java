@@ -12,7 +12,7 @@ public class FMediator implements Mediator {
     private BasePlant dirt=null;
     private Fertilizer fertilizer=null;
     private Pesticide pesticide=null;
-    private ArrayList<BonusEffect> effects;
+    private ArrayList<BonusEffect> effects=new ArrayList<>();
 
     //初始化中介者
 
@@ -41,6 +41,7 @@ public class FMediator implements Mediator {
             System.out.println("[FATAL] plant:consumable:effect:Mediator:no dirt added");
 
         }
+
         System.out.println("effect:");
         for(BonusEffect i:effects){
 

@@ -19,6 +19,11 @@ public class ToolKit extends Tool implements MementoReceiver {
         fertilizer = null;
     }
 
+    public void setFertilizer(Fertilizer fertilizer) {
+        this.fertilizer = fertilizer;
+    }
+
+
     public Integer getLevel() {
         return level;
     }//获取当前工具箱等级：使用场景command
@@ -27,7 +32,14 @@ public class ToolKit extends Tool implements MementoReceiver {
     public void setMyStrategy(Integer type){//设置策略方案，调整指针指向:使用场景strategy
         this.type = type;
         if(type == 1){
-            myStrategy = new WaterFertStrategy();//选择策略浇水施肥
+            if(fertilizer==null){
+                System.out.println("classname:"+getClass()+
+                        "content:Error, please set the fertilizer at first."+
+                        "method:setMyStrategy");
+                this.type = 0;
+                return;
+            }
+            myStrategy = new WaterFertStrategy(fertilizer);//选择策略浇水施肥
         }else{
             myStrategy = new WaterWeedStrategy();//选择策略浇水除草
         }
@@ -45,6 +57,11 @@ public class ToolKit extends Tool implements MementoReceiver {
         if(type == 0){
             System.out.println("classname:"+getClass()+
                     "content:No strategy, please set."+
+                    "method:visit");
+            return;
+        } else if (type == 1 && fertilizer == null){
+            System.out.println("classname:"+getClass()+
+                    "content:Error, please set the fertilizer at first."+
                     "method:visit");
             return;
         }

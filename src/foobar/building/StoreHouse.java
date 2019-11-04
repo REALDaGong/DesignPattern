@@ -2,7 +2,8 @@ package foobar.building;
 
 import foobar.building.base.Building;
 import foobar.plant.plant_entity.BasePlant;
-import foobar.plant.product.BaseProduct;
+import foobar.product.product_interface.BaseProduct;
+
 
 import java.util.ArrayList;
 
@@ -59,7 +60,7 @@ public class StoreHouse extends Building {
         showStore(battlemelon, "BattleMelon");
     }
 
-    private void showStore(@org.jetbrains.annotations.NotNull ArrayList<BaseProduct> store, String store_name) {
+    private void showStore(ArrayList<BaseProduct> store, String store_name) {
         if (store.isEmpty()) {
             System.out.println("No" + store_name + "in Store House " + name);
         } else {
@@ -68,7 +69,7 @@ public class StoreHouse extends Building {
     }
 
     public void addPlant(BaseProduct product) {
-        switch(product.name){
+        switch(product.getname()){
             case "anglecotton":
                 angelCotton.add(product);
                 System.out.println("AngleCotton upgrade");
@@ -88,7 +89,7 @@ public class StoreHouse extends Building {
     }
 
     public void addAnimal(BaseProduct animal){
-        switch(animal.name){
+        switch(animal.getname()){
             case "chicken":
                 chicken.add(animal);
                 System.out.println("Chicken upgrade");

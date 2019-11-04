@@ -18,7 +18,7 @@ public abstract class SeedsFactory {
     }
 
     /**
-     * 
+     * 产生普通种子
      */
     public abstract SeedBag produceSeeds();
 

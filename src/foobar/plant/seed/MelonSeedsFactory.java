@@ -18,6 +18,7 @@ public class MelonSeedsFactory extends SeedsFactory {
         return new MelonSeedBag();
     }
     @Override
+    //产生特殊品质的瓜
     public SeedBag produceSeedsWithSpecialQuailty(QuailtyConstructor quality) {
         QuailtyDirector qD =new QuailtyDirector();
         qD.setConstructor(quality);

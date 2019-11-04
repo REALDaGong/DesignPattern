@@ -41,8 +41,7 @@ public class Planter implements PlantingAction {
         System.out.println("after planting..");
     }
 
-    /**
-     * @param place
+    /**自动种植
      * @return
      */
     public BasePlant plantAt(Plantable place) {

@@ -20,14 +20,20 @@ public abstract class SeedBag implements PlantingAction {
         return basePlant;
     }
 
+    //获取种子名称
     public String getName(){
         return getProfile().getName();
     }
+
+    //获取种子的属性
     public abstract BasePlantProfile getProfile();
+
+    //设置种子的品质
     public void setPrefix(Prefix prefix){
         prefix=new Prefix();
     }
 
+    //获取种子对应的植物
     private BasePlant getPlant(){
         return new BasePlant(getProfile(),prefix.All()+getProfile().getName());
     }

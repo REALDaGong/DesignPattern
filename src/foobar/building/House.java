@@ -1,7 +1,7 @@
 package foobar.building;
 
 import foobar.building.base.Building;
-import foobar.People;
+
 
 public class House extends Building {
     @Override

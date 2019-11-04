@@ -6,6 +6,7 @@ import foobar.plant.Receiver;
 import foobar.plant.consumable.effect.*;
 import foobar.plant.consumable.item.*;
 import foobar.plant.plant_entity.*;
+import foobar.product.product_interface.BaseProduct;
 import foobar.tool.Tool;
 
 /**
@@ -20,19 +21,21 @@ public class Tile implements Plantable, Receiver {
      */
     public Tile() {
     }
-
+    public BasePlant getPlant(){
+        return plantSlot;
+    }
     /**
-     * 
+     * 氮
      */
     public int nitrogen=0;
 
     /**
-     * 
+     * 磷
      */
     public int phosphor=0;
 
     /**
-     * 
+     * 钾
      */
     public int kalium=0;
 
@@ -54,11 +57,13 @@ public class Tile implements Plantable, Receiver {
      * @param type
      */
     public void addFertilizer(Fertilizer type) {
-
-
+        if(plantSlot==null) {
+            System.out.println(this+" has no plant!");
+        }
+        else {
             plantSlot.FertilizerAdded(type);
             actAllFerPes();
-        System.out.println(type+"has been added!");
+        }
     }
 
     /**

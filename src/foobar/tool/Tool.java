@@ -1,6 +1,5 @@
 package foobar.tool;
 
-import foobar.Receiver;
 import foobar.plant.plant_entity.BasePlant;
 
 public abstract class Tool {

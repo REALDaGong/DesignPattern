@@ -54,7 +54,7 @@ public class BasePlant implements AddFertilizerEventObserver, Receiver {
      */
     private String name;
 
-    /**
+    /**长大，进入下一阶段
      * @return
      */
     public void grow() {
@@ -74,6 +74,7 @@ public class BasePlant implements AddFertilizerEventObserver, Receiver {
         }
         return new ArrayList<BaseProduct>();
     }
+    //判断是否成熟，如果成熟返回true
      private boolean riped(){
         if (Currentperiod.getNextPeriod() !=null){
             return false;
@@ -91,13 +92,12 @@ public class BasePlant implements AddFertilizerEventObserver, Receiver {
         med.actAll();
     }
 
-    /**
+    /**浇水
      * 1=success
      * 0=fail
      * @return
      */
     public int watered(int water) {
-
 
         System.out.println("The Plant has been watered!");
         return 1;
@@ -110,12 +110,11 @@ public class BasePlant implements AddFertilizerEventObserver, Receiver {
     public void FertilizerAdded(Fertilizer type) {
         // TODO implement here
         System.out.println(type+"has been added");
-        type.act();
     }
 
     public void pullWeed(){
         currentWeed=0;
-        System.out.println("The WEEB has been pulled!");
+        System.out.println("The Weed has been pulled!");
     }
 
     public String getName(){

@@ -1,5 +1,4 @@
 package foobar.tool.agriculture_tool;
-import foobar.Receiver;
 import foobar.plant.consumable.item.Pesticide;
 import foobar.plant.plant_entity.BasePlant;
 import foobar.tool.Tool;

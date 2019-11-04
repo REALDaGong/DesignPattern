@@ -17,7 +17,7 @@ public class Field implements Plantable, Receiver {
 
 
     /**
-     * @param c
+     * @param c 开垦一块土地，即将一块小土地加入大地块
      */
     public void reclamation(Plantable c) {
         // TODO implement here
@@ -25,7 +25,7 @@ public class Field implements Plantable, Receiver {
     }
 
     /**
-     * @param c
+     * @param c 放弃一块小地块
      */
     public void abandon(Plantable c) {
         // TODO implement here
@@ -34,7 +34,7 @@ public class Field implements Plantable, Receiver {
 
     /**
      * @param index 
-     * @return
+     * @return 通过序号获取土地上的小地块
      */
     public Plantable getchild(int index) {
         // TODO implement here
@@ -42,7 +42,7 @@ public class Field implements Plantable, Receiver {
     }
 
     /**
-     * 
+     * 犁地
      */
     public int plow() {
         // TODO implement here

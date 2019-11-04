@@ -10,7 +10,7 @@ import java.util.*;
 public interface AddFertilizerEventObserver {
 
     /**
-     * 
+     * 观察土地上化肥的施加动作
      */
     public void FertilizerAdded(Fertilizer type);
 

@@ -14,6 +14,7 @@ public class Harvester {
 
     }
 
+    //收获植物时调用
     public int harvest(BasePlant plant){
         ArrayList<BaseProduct> allProduct=plant.harvest();
         PlantProxy aproxy = new PlantProxy(store);

@@ -17,10 +17,17 @@ public class ShiDanLiFactory extends AbstractConsumableFactory {
 
     public ShiDanLiFactory() {
     }
+    /**初始化一个农药，返回它
+     * @return 农药对象
+     */
     public Pesticide getPesticide() {
 
         return new ShiP(brand,size,description,effect);
     }
+
+    /**初始化一个化肥，返回它
+     * @return 化肥对象
+     */
     public Fertilizer getFertilizer() {
 
         return new ShiF(brand,size,description,effect);

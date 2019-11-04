@@ -78,15 +78,21 @@ public class Fertilizer {
         }
     }
 
+    //返回这个化肥的所有效果
     public ArrayList<BonusEffect> getEffect() {
         ArrayList<BonusEffect> output=moreEffect;
         output.add(baseEffect);
         return output;
     }
 
+    //设置这个化肥的基础效果
     public void setBonusEffect(BonusEffect bonusEffect){
         baseEffect=bonusEffect;
     }
 
+    //获得这个化肥的品牌描述
+    public String getBrand(){
+        return brand;
+    }
 
 }
