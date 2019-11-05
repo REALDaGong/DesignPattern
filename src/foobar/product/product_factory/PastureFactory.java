@@ -10,16 +10,20 @@ public class PastureFactory extends BaseFactory {
         if(animalName == null){
             return null;
         }
-        if(animalName.equalsIgnoreCase("Chicken")){
-            return new Chicken();
-        } else if(animalName.equalsIgnoreCase("Fish")){
-            return new Fish();
-        } else if(animalName.equalsIgnoreCase("Frog")){
-            return new Frog();
+        if(animalName.equalsIgnoreCase("ChickenMeat")){
+            return new ChickenMeat();
+        } else if(animalName.equalsIgnoreCase("FishMeat")){
+            return new FishMeat();
+        } else if(animalName.equalsIgnoreCase("FrogMeat")){
+            return new FrogMeat();
         } else if(animalName.equalsIgnoreCase("Mutton")){
             return new Mutton();
         } else if(animalName.equalsIgnoreCase("Pork")){
             return new Pork();
+        } else if(animalName.equalsIgnoreCase("Egg")){
+            return new Egg();
+        } else if(animalName.equalsIgnoreCase("Wool")){
+            return new Wool();
         }
         return null;
     }

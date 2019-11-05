@@ -10,11 +10,13 @@ public class Test {
          */
         BaseFactory farmfactory = FactoryProducer.getFactory("Farm");
 	    BaseFactory pasturefactory = FactoryProducer.getFactory("Pasture");
-        BaseProduct animal1 = pasturefactory.getAnimal("Chicken");
-        BaseProduct animal2 = pasturefactory.getAnimal("Fish");
-        BaseProduct animal3 = pasturefactory.getAnimal("Frog");
+        BaseProduct animal1 = pasturefactory.getAnimal("ChickenMeat");
+        BaseProduct animal2 = pasturefactory.getAnimal("FishMeat");
+        BaseProduct animal3 = pasturefactory.getAnimal("FrogMeat");
         BaseProduct animal4 = pasturefactory.getAnimal("Mutton");
         BaseProduct animal5 = pasturefactory.getAnimal("Pork");
+        BaseProduct animal6 = pasturefactory.getAnimal("Wool");
+        BaseProduct animal7 = pasturefactory.getAnimal("Egg");
         BaseProduct plant1 = farmfactory.getPlant("AngleCotton");
         BaseProduct plant2 = farmfactory.getPlant("DemonCotton");
         BaseProduct plant3 = farmfactory.getPlant("BattleMelon");
@@ -23,6 +25,8 @@ public class Test {
         System.out.println(animal3.getname());
         System.out.println(animal4.getname());
         System.out.println(animal5.getname());
+        System.out.println(animal6.getname());
+        System.out.println(animal7.getname());
         System.out.println(plant1.getname());
         System.out.println(plant2.getname());
         System.out.println(plant3.getname());
