@@ -4,6 +4,7 @@ import foobar.people.actions.ActionWrapper;
 import foobar.people.actions.Provider;
 import foobar.people.types.JobCategory;
 import foobar.tool.Tool;
+import foobar.tool.agriculture_tool.WeedTool;
 
 // 表示农场主的类，继承自 Person
 // 运用单例模式，将 Farmer 设计为单例类，保证在一个 JVM 中只有一个实例存在
@@ -62,5 +63,8 @@ public class Farmer extends Person {
     }
     public boolean releaseReplaceWork(Tool tool) {
         return firstFarmhand.replaceTool(tool);
+    }
+    public void replaceWeedTool(Tool tool){
+        tool = (WeedTool)tool.replaceByNewOne();
     }
 }

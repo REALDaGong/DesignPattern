@@ -23,6 +23,8 @@ public class Test {
         BasePlant obj = new BasePlant(PlantProfileManager.getInstance().getPlantProfile("Cotton"),"hello");
         //Object obj = new Object();
 
+        farmer.replaceWeedTool(tool);
+
         ToolKit tk = new ToolKit();
         tk.setFertilizer(new ShiF("SHit",7,"All shit",new Anamnesis()));
         CottonSeedsFactory factory=new CottonSeedsFactory();
