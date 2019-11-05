@@ -16,14 +16,13 @@ public class StoreHouseBuilder extends BuildingBuilder {
     }
 
     @Override
-    public void Prepare() {
-        System.out.println("New storeHouse " + storeHouse.name + " foobar.Building is prepared");
+    public void prepare() {
+        System.out.println("New storeHouse " + storeHouse.name + " is prepared");
     }
 
     @Override
-    public void SetCapacity() {
-        storeHouse.capacity = storeHouse.xlen * storeHouse.ylen * storeHouse.zlen / 100;
-        System.out.println("New StoreHouse " + storeHouse.name + " can store " + storeHouse.capacity + " things");
+    public void building() {
+        System.out.println("New storeHouse " + storeHouse.name + " is builded");;
     }
 
     @Override

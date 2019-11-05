@@ -17,14 +17,13 @@ public class FarmBuilder extends BuildingBuilder {
     }
 
     @Override
-    public void Prepare() {
+    public void prepare() {
         System.out.println("New Farm " + farm.name + "  is prepared");
     }
 
     @Override
-    public void SetCapacity() {
-        farm.capacity = farm.xlen * farm.ylen;
-        System.out.println("New Farm " + farm.name + " can store " + farm.capacity + "plant");
+    public void building() {
+        System.out.println("New Farm " + farm.name + "  is builded");
     }
 
     @Override

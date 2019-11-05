@@ -29,7 +29,7 @@ public class SheepState extends AnimalState {
 
     public void justEat() {
         nutritionalStatus++;
-        System.out.println("A sheep has nothing to eat!");
+        System.out.println("A sheep is eating!");
     }
 
     public void getHungryAndDie() {
@@ -43,7 +43,7 @@ public class SheepState extends AnimalState {
     }
 
     public void tooYoungToProduce() {
-        System.out.println("This sheep is too young to lay an egg!");
+        System.out.println("This sheep is too young to produce wool!");
     }
 
     /**

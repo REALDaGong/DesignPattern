@@ -18,7 +18,8 @@ public class Pig extends Animal implements BreedInterface{
     }
 
     public Pig breed() {
-    	this.state.setNStatus(1);    
+    	this.state.setNStatus(1);
+        System.out.println("A new pig has been born!");
     	return new Pig();
     }
    
@@ -27,8 +28,5 @@ public class Pig extends Animal implements BreedInterface{
      */
     private String type = "Pig";
 
-    /**
-     * 
-     */
-    private PigState state;
+
 }

@@ -18,7 +18,8 @@ public class Frog extends Animal implements BreedInterface{
     }
 
     public Frog breed() {
-    	this.state.setNStatus(1);    
+    	this.state.setNStatus(1);
+        System.out.println("A new frog has been born!");
     	return new Frog();
     }
     
@@ -27,10 +28,7 @@ public class Frog extends Animal implements BreedInterface{
      */
     private String type = "Frog";
 
-    /**
-     * 
-     */
-    private FrogState state;
+
 
     /**
      * @return

@@ -26,7 +26,7 @@ public class PigState extends AnimalState {
     	}
     public void justEat() {
     	nutritionalStatus++;
-    	System.out.println("A pig has nothing to eat!");
+    	System.out.println("A pig is eating!");
     }
     public void getHungryAndDie() {
     	state=dead;

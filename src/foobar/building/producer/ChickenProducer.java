@@ -1,6 +1,8 @@
 package foobar.building.producer;
 
-import foobar.animal.animal.Chicken;
+import foobar.animal.animal_base.Chicken;
+import foobar.product.pasture_product.ChickenMeat;
+import foobar.product.pasture_product.Egg;
 import foobar.product.product_interface.BaseProduct;
 
 import java.util.ArrayList;
@@ -14,18 +16,19 @@ public class ChickenProducer extends BaseProducer {
 
     @Override
     public ArrayList<BaseProduct> produceWithDeath() {
-        ArrayList<BaseProduct> products = new ArrayList<BaseProduct>();
+        ArrayList<BaseProduct> products = new ArrayList<>();
         for (Chicken chicken : chickens) {
-            products.add(chicken.produceWithDeath());
-            chickens.remove(chicken);
+            ChickenMeat chickenMeat = (ChickenMeat) chicken.produceWithDeath();
+            products.add(chickenMeat);
         }
+       chickens = new ArrayList<Chicken>();
         return products;
     }
 
     public ArrayList<BaseProduct> produceWithoutDeath() {
-        ArrayList<BaseProduct> products = new ArrayList<BaseProduct>();
+        ArrayList<BaseProduct> products = new ArrayList<>();
         for (Chicken chicken : chickens) {
-            products.add(chicken.produceWithoutDeath());
+            products.add((Egg)chicken.produceWithoutDeath());
         }
         return products;
     }

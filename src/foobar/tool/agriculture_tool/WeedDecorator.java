@@ -1,24 +1,23 @@
 package foobar.tool.agriculture_tool;
 import foobar.plant.plant_entity.BasePlant;
-import foobar.tool.Tool;
 
 public class WeedDecorator extends BaseDecorator {
+    private WeedTool weedTool;
 
-
-    public WeedDecorator(Tool tool){
+    public WeedDecorator(WeedTool weedTool){
         super();
-        this.tool = tool;
+        this.weedTool = weedTool; 
     }
 
     public WeedDecorator(){
         super();
-        this.tool = new WeedTool();
+        this.weedTool = new WeedTool();
     }
 
     @Override
     public void visit(Object basePlant){
 
-        ((WeedTool)tool).visit(basePlant);                  //割草刀除草
+        weedTool.visit(basePlant);                  //割草刀除草
 
         if(getState() == 0){                        //机器已经损坏
             System.out.println("This machine is damaged. Need to be repaired or replaced");

@@ -25,7 +25,7 @@ public class FrogState extends AnimalState {
     	}
     public void justEat() {
     	nutritionalStatus++;
-    	System.out.println("A frog has nothing to eat!");
+    	System.out.println("A frog is eating!");
     }
     public void getHungryAndDie() {
     	state=dead;

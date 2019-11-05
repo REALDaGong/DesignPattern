@@ -19,7 +19,8 @@ public class Fish extends Animal implements BreedInterface{
     }
 
     public Fish breed() {
-    	this.state.setNStatus(1);    
+    	state.setNStatus(1);
+        System.out.println("A new fish has been born!");
     	return new Fish();
     }
     
@@ -28,9 +29,6 @@ public class Fish extends Animal implements BreedInterface{
      */
     private String type = "Fish";
 
-    /**
-     * 
-     */
-    private FishState state;
+
 
 }

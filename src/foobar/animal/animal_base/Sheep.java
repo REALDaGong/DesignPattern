@@ -19,7 +19,8 @@ public class Sheep extends Animal implements BreedInterface{
     }
 
     public Sheep breed() {
-    	this.state.setNStatus(1);    
+    	this.state.setNStatus(1);
+        System.out.println("A new sheep has been born!");
     	return new Sheep();
     }
    
@@ -28,9 +29,5 @@ public class Sheep extends Animal implements BreedInterface{
      */
     private String type = "Sheep";
 
-    /**
-     * 
-     */
-    private SheepState state;
 
 }

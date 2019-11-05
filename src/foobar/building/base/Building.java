@@ -5,9 +5,6 @@ public abstract class Building {
     public double xlen;
     public double ylen;
     public double zlen;
-    public double capacity;
-
-//    public ArrayList<Object> stored;
 
     public Building() {
 

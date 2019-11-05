@@ -6,9 +6,9 @@ public abstract class BuildingBuilder {
 
     }
 
-    public abstract void Prepare();
+    public abstract void prepare();
 
-    public abstract void SetCapacity();
+    public abstract void building();
 
     public abstract Building GetBuilding();
 }

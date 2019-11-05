@@ -2,20 +2,22 @@ package foobar.tool.agriculture_tool;
 import foobar.tool.Tool;
 
 public class BaseDecorator extends Tool{
-    public Tool tool;
+    private WeedTool weedTool;
 
-    public BaseDecorator(WeedTool tool){
+    public BaseDecorator(WeedTool weedTool){
         super();
-        this.tool = tool;
+        this.weedTool = weedTool;
     }
 
     public BaseDecorator(){
         super();
-        this.tool = new WeedTool();
+        this.weedTool = new WeedTool();
     }
 
     @Override
-    public void visit(Object basePlant){};
+    public void visit(Object basePlant){
+        weedTool.visit(basePlant);
+    };
 
     @Override
     public BaseDecorator clone() {

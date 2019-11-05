@@ -56,10 +56,10 @@ public class Animal {
     /**
      * 
      */
-    private AnimalState state;
+    public AnimalState state;
     
     public boolean checkFertility() {
-    	if(state.getNStatus()>1) {
+    	if(state.getNStatus()>1&&state.getState()>0) {
     		return true;
     	}
     	else {
@@ -192,7 +192,7 @@ public class Animal {
      */
     public Object produceWithDeath() {
     	this.isAlive=false;
-    	return this.state.produceWithoutDeath();
+    	return this.state.produceWithDeath();
     	
     }
 

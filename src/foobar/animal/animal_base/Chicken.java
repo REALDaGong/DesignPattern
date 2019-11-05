@@ -18,7 +18,9 @@ public class Chicken extends Animal implements BreedInterface{
     }
 
     public Chicken breed() {
-    	this.state.setNStatus(1);
+
+    	state.setNStatus(1);
+    	System.out.println("A new chicken has been born!");
     	return new Chicken();
     	
     }
@@ -28,10 +30,6 @@ public class Chicken extends Animal implements BreedInterface{
      */
     private String type = "Chicken";
 
-    /**
-     * 
-     */
-    private ChickenState state;
 
     /**
      * 

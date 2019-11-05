@@ -1,7 +1,7 @@
 package foobar.building.producer;
 
-import foobar.animal.animal.Frog;
-
+import foobar.animal.animal_base.Frog;
+import foobar.product.pasture_product.FrogMeat;
 import foobar.product.product_interface.BaseProduct;
 
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ public class FrogProducer extends BaseProducer {
     public ArrayList<BaseProduct> produceWithDeath() {
         ArrayList<BaseProduct> products = new ArrayList<BaseProduct>();
         for (Frog frog : frogs) {
-            products.add(frog.produceWithDeath());
-            frogs.remove(frog);
+            products.add((FrogMeat)frog.produceWithDeath());
         }
+        frogs = new ArrayList<>();
         return products;
     }
 }

@@ -1,15 +1,13 @@
 package foobar;
 
 
-import foobar.tool.Test;
+import foobar.building.building_test.BuildingTest;
 
 public class Main {
 
     public static void main(String[] args) {
-        //foobar.plant.test.MainTest.Main();
-        //foobar.animal.test.mainTest.main(args);
-        Test t = new Test();
-        t.startAllTest();
+//        foobar.plant.BuildingTest.MainTest.Main();
+        BuildingTest.main();
     }
 
 }

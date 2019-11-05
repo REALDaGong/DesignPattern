@@ -1,23 +1,27 @@
 package foobar.building;
 
 import foobar.building.base.Building;
+import foobar.product.farm_product.AngleCotton;
+import foobar.product.farm_product.BattleMelon;
+import foobar.product.farm_product.DemonCotton;
+import foobar.product.pasture_product.*;
 import foobar.product.product_interface.BaseProduct;
 
 import java.util.ArrayList;
 
 public class StoreHouse extends Building {
 
-    private ArrayList<BaseProduct> angelCotton = new ArrayList<BaseProduct>();
-    private ArrayList<BaseProduct> demonCotton = new ArrayList<BaseProduct>();
-    private ArrayList<BaseProduct> battlemelon = new ArrayList<BaseProduct>();
+    private ArrayList<AngleCotton> angelCotton = new ArrayList<>();
+    private ArrayList<DemonCotton> demonCotton = new ArrayList<>();
+    private ArrayList<BattleMelon> battlemelon = new ArrayList<>();
 
-    private ArrayList<BaseProduct> chicken = new ArrayList<BaseProduct>();
-    private ArrayList<BaseProduct> fish = new ArrayList<BaseProduct>();
-    private ArrayList<BaseProduct> frog = new ArrayList<BaseProduct>();
-    private ArrayList<BaseProduct> mutton = new ArrayList<BaseProduct>();
-    private ArrayList<BaseProduct> pork = new ArrayList<BaseProduct>();
-    private ArrayList<BaseProduct> egg = new ArrayList<BaseProduct>();
-    private ArrayList<BaseProduct> wool = new ArrayList<BaseProduct>();
+    private ArrayList<ChickenMeat> chicken = new ArrayList<>();
+    private ArrayList<FishMeat> fish = new ArrayList<>();
+    private ArrayList<FrogMeat> frog = new ArrayList<>();
+    private ArrayList<Mutton> mutton = new ArrayList<>();
+    private ArrayList<Pork> pork = new ArrayList<>();
+    private ArrayList<Egg> egg = new ArrayList<>();
+    private ArrayList<Wool> wool = new ArrayList<>();
 
 
     @Override
@@ -37,15 +41,15 @@ public class StoreHouse extends Building {
     public void addPlant(BaseProduct product) {
         switch (product.getname()) {
             case "anglecotton":
-                angelCotton.add(product);
+                angelCotton.add((AngleCotton) product);
                 System.out.println("AngleCotton upgrade");
                 break;
             case "demoncotton":
-                demonCotton.add(product);
+                demonCotton.add((DemonCotton) product);
                 System.out.println("DemonCotton upgrade");
                 break;
             case "battlemelon":
-                battlemelon.add(product);
+                battlemelon.add((BattleMelon) product);
                 System.out.println("BattleMelon upgrade");
                 break;
             default:
@@ -54,32 +58,34 @@ public class StoreHouse extends Building {
         }
     }
 
-    public void addAnimal(ArrayList<BaseProduct> products) {
-        for (BaseProduct product : products) {
-            switch (product.getname()) {
-                case "chicken":
-                    chicken.add(product);
-                    break;
-                case "fish":
-                    fish.add(product);
-                    break;
-                case "frog":
-                    frog.add(product);
-                    break;
-                case "pork":
-                    pork.add(product);
-                    break;
-                case "sheep":
-                    mutton.add(product);
-                    break;
-                case "egg":
-                    egg.add(product);
-                    break;
-                case "wool":
-                    wool.add(product);
-                    break;
-            }
+    public void addAnimal(BaseProduct product) {
+        if (product == null) {
+            return;
         }
+        switch (product.getname()) {
+            case "chickenmeat":
+                chicken.add((ChickenMeat) product);
+                break;
+            case "fishmeat":
+                fish.add((FishMeat) product);
+                break;
+            case "frogmeat":
+                frog.add((FrogMeat) product);
+                break;
+            case "pork":
+                pork.add((Pork) product);
+                break;
+            case "mutton":
+                mutton.add((Mutton) product);
+                break;
+            case "egg":
+                egg.add((Egg) product);
+                break;
+            case "wool":
+                wool.add((Wool) product);
+                break;
+        }
+
     }
 
 }

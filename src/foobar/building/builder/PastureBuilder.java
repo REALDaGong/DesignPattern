@@ -15,14 +15,13 @@ public class PastureBuilder extends BuildingBuilder {
     }
 
     @Override
-    public void Prepare() {
-        System.out.println("New Pasture " + pasture.name + " foobar.Building is prepared");
+    public void prepare() {
+        System.out.println("New Pasture " + pasture.name + " is prepared");
     }
 
     @Override
-    public void SetCapacity() {
-        pasture.capacity = pasture.xlen * pasture.ylen;
-        System.out.println("New Pasture " + pasture.name + " can store " + pasture.capacity + " Animals");
+    public void building() {
+        System.out.println("New Pasture " + pasture.name + " is builded");
     }
 
     @Override

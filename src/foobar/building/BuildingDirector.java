@@ -5,7 +5,7 @@ import foobar.building.base.BuildingBuilder;
 public class BuildingDirector {
     public void Build(BuildingBuilder buildingBuilder)
     {
-        buildingBuilder.Prepare();
-        buildingBuilder.SetCapacity();
+        buildingBuilder.prepare();
+        buildingBuilder.building();
     }
 }

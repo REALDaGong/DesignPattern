@@ -28,7 +28,7 @@ public class FishState extends AnimalState {
 
     public void justEat() {
         nutritionalStatus++;
-        System.out.println("A fish has nothing to eat!");
+        System.out.println("A fish is eating!");
     }
 
     public void getHungryAndDie() {

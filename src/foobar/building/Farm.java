@@ -20,9 +20,6 @@ public class Farm extends Building {
             System.out.println("Farm only can store plant");
             return false;
         }
-        if (plantables.size() >= capacity) {
-            System.out.println("Farm " + name + " is full, can't add");
-        }
         plantables.add((Plantable) object);
         return true;
     }
@@ -38,7 +35,7 @@ public class Farm extends Building {
         return workload;
     }
 
-    public void harvestAll() {
+    public ArrayList<BaseProduct> harvestAll() {
         ArrayList<BaseProduct> products = new ArrayList<BaseProduct>();
         for (Plantable plantable : plantables) {
             if (plantable instanceof Tile) {
@@ -48,5 +45,6 @@ public class Farm extends Building {
                 product.forEach(i -> products.add(i));
             }
         }
+        return products;
     }
 }
