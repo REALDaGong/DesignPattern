@@ -1,5 +1,7 @@
 package foobar.animal.state;
 
+import foobar.product.pasture_product.ChickenMeat;
+import foobar.product.pasture_product.Egg;
 
 /**
  * 
@@ -20,7 +22,7 @@ public class ChickenState extends AnimalState {
     	state=state+1;
     	nutritionalStatus=1;
     	System.out.println("A chicken has eaten and grown up!");
-    	if(state==dead) {//成长阶段达到3，老死
+    	if(state==dead) {//�ɳ��׶δﵽ3������
 			System.out.println("A chicken has died of old age!");
 		}
     	}
@@ -46,22 +48,23 @@ public class ChickenState extends AnimalState {
     /**
      * @return
      */
-    public String produceWithoutDeath() {    	
+    public Egg produceWithoutDeath() {    	
 				//��������	
     	System.out.println("A chicken has laid an egg!");
-    	return "egg";
+    	return new Egg();
 		     
     }
 
     /**
      * @return
      */
-    public String produceWithDeath() {
+    public ChickenMeat produceWithDeath() {
         // TODO implement here
     	
 			//��������		
     	System.out.println("A piece of chicken has been produced!");
-		return "Chicken";
+    	System.out.println("A chicken died!");
+		return new ChickenMeat();
     }
 
    

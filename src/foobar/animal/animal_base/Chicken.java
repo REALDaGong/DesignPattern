@@ -1,14 +1,14 @@
-package foobar.animal.animal;
+package foobar.animal.animal_base;
 
 
-import foobar.animal.action.*;
-import foobar.animal.color.*;
-import foobar.animal.state.*;
-
+import foobar.animal.action.LyingSleepAction;
+import foobar.animal.action.RunWalkAction;
+import foobar.animal.color.White;
+import foobar.animal.state.ChickenState;
 /**
  * 
  */
-public class Chicken extends Animal {
+public class Chicken extends Animal implements BreedInterface{
 
     /**
      * Default constructor
@@ -17,6 +17,11 @@ public class Chicken extends Animal {
     	super("Chicken", new White(), new RunWalkAction(), new LyingSleepAction(), new ChickenState());
     }
 
+    public Chicken breed() {
+    	this.state.setNStatus(1);
+    	return new Chicken();
+    	
+    }
     
     /**
      * 

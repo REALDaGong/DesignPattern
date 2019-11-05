@@ -1,7 +1,6 @@
 package foobar.animal.factory;
 
-
-import foobar.animal.animal.Fish;
+import foobar.animal.animal_base.Fish;
 
 /**
  * 

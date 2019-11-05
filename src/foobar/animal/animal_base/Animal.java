@@ -1,7 +1,8 @@
-package foobar.animal.animal;
+package foobar.animal.animal_base;
 
 
-import foobar.animal.action.*;
+import foobar.animal.action.SleepAction;
+import foobar.animal.action.WalkAction;
 import foobar.animal.color.Color;
 import foobar.animal.state.AnimalState;
 
@@ -18,13 +19,7 @@ public class Animal {
     	this.color=color;
     	this.walkAction=walkAction;
     	this.sleepAction=sleepAction;
-    	this.state=state;
-    	if(Math.random()<0.5) {
-    		this.gender=0;
-    	}
-    	else {
-    		this.gender=1;
-    	}
+    	this.state=state;   	
     }
 
     /**
@@ -42,7 +37,6 @@ public class Animal {
      */
     private String type;
     
-    private int gender;
 
     /**
      * 
@@ -64,9 +58,6 @@ public class Animal {
      */
     private AnimalState state;
     
-    public int getGender() {
-    	return gender;
-    }
     public boolean checkFertility() {
     	if(state.getNStatus()>1) {
     		return true;
@@ -74,11 +65,6 @@ public class Animal {
     	else {
     		return false;
     	}
-    }
-    public String breed(Animal target) {
-    	this.state.setNStatus(1);
-    	target.state.setNStatus(1);    	
-    	return this.type;
     }
     	
     
@@ -142,20 +128,20 @@ public class Animal {
     	this.color=color;
     }
 
-    /**进食，营养+1
+    /**��ʳ��Ӫ��+1
      * @return
      */
     public void eat() {
-        //营养为3时进食，成长
+        //Ӫ��Ϊ3ʱ��ʳ���ɳ�
     	if(state.getNStatus()==3) {
     		state.eatAndGrowUp();
     	}
-    	//营养+1
+    	//Ӫ��+1
     	else {
     		state.justEat();
     	}
     	
-    	//更新动物状态
+    	//���¶���״̬
     	if(this.state.getNStatus()>1) {
     		this.isHungry=false;
     	}
@@ -164,21 +150,21 @@ public class Animal {
     	}
     }
 
-    /**挨饿，营养-1
+    /**������Ӫ��-1
      * @return
      */
     public void setHungry() {
-        //
+        //Ӫ��Ϊ0ʱ����������
     	if(state.getNStatus()==0) {
     		state.getHungryAndDie();
     		this.isAlive=false;
     	}
-    	//
+    	//Ӫ��-1
     	else {
     		state.justGetHungry();
     	}
     	
-    	//
+    	//���¶���״̬
     	if(this.state.getNStatus()<2) {
     		this.isHungry=true;
     	}
@@ -187,11 +173,11 @@ public class Animal {
     	}
     }
 
-    /**非屠宰收获
+    /**�������ջ�
      * @return
      */
-    public String produceWithoutDeath() {
-        //
+    public Object produceWithoutDeath() {
+        //�ɳ��׶�Ϊ0�������ջ�
     	if(state.getState()==0) {
     		state.tooYoungToProduce();
     		return null;
@@ -201,10 +187,10 @@ public class Animal {
     	}
     }
 
-    /**屠宰收获
+    /**�����ջ�
      * @return
      */
-    public String produceWithDeath() {
+    public Object produceWithDeath() {
     	this.isAlive=false;
     	return this.state.produceWithoutDeath();
     	

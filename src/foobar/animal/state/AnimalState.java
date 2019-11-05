@@ -1,7 +1,7 @@
 package foobar.animal.state;
 
 
-import foobar.animal.animal.Animal;
+import foobar.animal.animal_base.Animal;
 
 /**
  * 
@@ -39,28 +39,28 @@ public class AnimalState {
      */
     protected Animal animal;
 
-    /**
+    /**??????????ж▒?
      * @return
      */
     public int getState() {
         return state;
     }
 
-    /**
+    /**???ив??????ж▒?
      * @param state
      */
     public void setState(int state) {
     	this.state=state;
     }
 
-    /**
+    /**?????????????
      * @return
      */
     public int getNStatus() {
         return nutritionalStatus;
     }
 
-    /**
+    /**???ив?????????
      * @param nStatus
      */
     public void setNStatus(int nStatus) {
@@ -104,7 +104,7 @@ public class AnimalState {
     /**
      * @return
      */
-    public String produceWithoutDeath() {
+    public Object produceWithoutDeath() {
         // TODO implement here
         return null;
     }
@@ -112,7 +112,7 @@ public class AnimalState {
     /**
      * @return
      */
-    public String produceWithDeath() {
+    public Object produceWithDeath() {
         // TODO implement here
         return null;
     }

@@ -1,8 +1,10 @@
 package foobar.animal.action;
 
+import foobar.animal.animal_base.Animal;
 
-import foobar.animal.animal.Animal;
-
+/**
+ * 
+ */
 public class LyingSleepAction implements SleepAction {
 
     /**
