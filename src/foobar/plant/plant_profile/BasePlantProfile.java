@@ -1,5 +1,5 @@
 package foobar.plant.plant_profile;
-
+import logger.logger;
 import java.util.*;
 
 import foobar.plant.period.*;
@@ -36,7 +36,7 @@ public abstract class BasePlantProfile {
      */
     public ArrayList<BaseProduct> getProduct() {
         if (product==null){
-            System.out.println("no product aligned to the plant.");
+            logger.println("no product aligned to the plant.");
             return new ArrayList<BaseProduct>();
         }
         ArrayList<BaseProduct> list=product.getDrop();

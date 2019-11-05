@@ -1,12 +1,11 @@
 package foobar.plant.farm;
 
 import java.util.*;
-
+import logger.logger;
 import foobar.plant.Receiver;
 import foobar.plant.consumable.effect.*;
 import foobar.plant.consumable.item.*;
 import foobar.plant.plant_entity.*;
-import foobar.product.product_interface.BaseProduct;
 import foobar.tool.Tool;
 
 /**
@@ -58,11 +57,12 @@ public class Tile implements Plantable, Receiver {
      */
     public void addFertilizer(Fertilizer type) {
         if(plantSlot==null) {
-            System.out.println(this+" has no plant!");
+            logger.println("该地块上没有植物");
         }
         else {
             plantSlot.FertilizerAdded(type);
-            actAllFerPes();
+            actAllFerPes(type);
+            logger.println("施加完毕");
         }
     }
 
@@ -74,10 +74,11 @@ public class Tile implements Plantable, Receiver {
 
 
         if (plowState==1) {
-            System.out.println("The tile has been plowed.");
+            logger.println("已经被耕过了");
+
             return 1;
         }else{
-            System.out.println("plow!");
+            logger.println("耕地！");
             plowState=1;
             return 0;
         }
@@ -87,17 +88,19 @@ public class Tile implements Plantable, Receiver {
     //种植植物
     public void plantSeed(BasePlant seed){
         if(plowState==0){
-            System.out.println("Please plow first!");
+            logger.println("请先耕地");
         }
         else{
+            logger.println("植物种植成功");
             plantSlot=seed;
         }
     }
 
     //调用中介者，施加所有种类药剂
-    private void actAllFerPes()
+    private void actAllFerPes(Fertilizer type)
     {
         FMediator fMediator=new FMediator(plantSlot);
+        fMediator.addFertilizer(type);
         fMediator.actAll();
     }
 
@@ -105,7 +108,7 @@ public class Tile implements Plantable, Receiver {
     public void accept(Tool tool) {
         //if empty?
         if (plantSlot==null) {
-            System.out.println("farm:Tile:plantSlot is null");
+            logger.println("该地块上没有植物");
         }
         tool.visit(this);
     }

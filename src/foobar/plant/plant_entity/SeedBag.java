@@ -1,6 +1,7 @@
 package foobar.plant.plant_entity;
 
 import foobar.plant.farm.*;
+import logger.logger;
 import foobar.plant.plant_profile.*;
 
 /**
@@ -15,6 +16,8 @@ public abstract class SeedBag implements PlantingAction {
      * @return BasePlant :被种下的植物
      */
     public BasePlant plantAt(Plantable place) {
+        logger.println("种种子，对应的Profile是"+getProfile());
+        logger.println("所种的地块是"+place);
         BasePlant basePlant=getPlant();
         place.plantSeed(basePlant);
         return basePlant;

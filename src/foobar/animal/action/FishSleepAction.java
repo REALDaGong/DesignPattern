@@ -1,7 +1,7 @@
 package foobar.animal.action;
 
 import foobar.animal.animal_base.Animal;
-
+import logger.logger;
 /**
  * 
  */
@@ -19,7 +19,7 @@ public class FishSleepAction implements SleepAction {
 
     public void sleepWay(Animal animal) {
         // TODO implement here
-    	System.out.println("Animal "+animal.getType()+" sleep in the water");
+    	logger.println("Animal "+animal.getType()+" sleep in the water");
     }
 
     /**

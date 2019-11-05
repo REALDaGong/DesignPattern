@@ -1,6 +1,6 @@
 package foobar.animal.animal_base;
 
-
+import logger.logger;
 import foobar.animal.action.FishSleepAction;
 import foobar.animal.action.SwimWalkAction;
 import foobar.animal.color.White;
@@ -20,7 +20,7 @@ public class Fish extends Animal implements BreedInterface{
 
     public Fish breed() {
     	state.setNStatus(1);
-        System.out.println("A new fish has been born!");
+        logger.println("A new fish has been born!");
     	return new Fish();
     }
     

@@ -1,5 +1,6 @@
 package foobar.animal.state;
 import foobar.product.pasture_product.FrogMeat;
+import logger.logger;
 /**
  * 
  */
@@ -18,23 +19,23 @@ public class FrogState extends AnimalState {
     public void eatAndGrowUp() {
     	state=state+1;
     	nutritionalStatus=1;
-    	System.out.println("A frog has eaten and grown up!");
-    	if(state==dead) {//?????¦Ä?3??????
-			System.out.println("A frog has died of old age!");
+    	logger.println("A frog has eaten and grown up!");
+    	if(state==dead) {//?????ï¿½ï¿½?3??????
+			logger.println("A frog has died of old age!");
 		}
     	}
     public void justEat() {
     	nutritionalStatus++;
-    	System.out.println("A frog is eating!");
+    	logger.println("A frog is eating!");
     }
     public void getHungryAndDie() {
     	state=dead;
-		System.out.println("A frog has starved to death!");
+		logger.println("A frog has starved to death!");
     }
 
     public void justGetHungry() {
     	nutritionalStatus--;
-    	System.out.println("A frog has nothing to eat!");
+    	logger.println("A frog has nothing to eat!");
     }
 
     /**
@@ -42,7 +43,7 @@ public class FrogState extends AnimalState {
      */
     public String produceWithoutDeath() {
         // TODO implement here
-    	System.out.println("Frog does not have product without death!");
+    	logger.println("Frog does not have product without death!");
     	return null;
     }
 
@@ -51,8 +52,8 @@ public class FrogState extends AnimalState {
      */
     public FrogMeat produceWithDeath() {
         // TODO implement here
-    	System.out.println("A piece of frog meat has been produced!");
-      	System.out.println("A frog died!");
+    	logger.println("A piece of frog meat has been produced!");
+      	logger.println("A frog died!");
         return new FrogMeat();
     }
 

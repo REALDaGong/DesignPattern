@@ -1,7 +1,7 @@
 package foobar.product;
 
 import foobar.product.product_interface.*;
-
+import logger.logger;
 public class Test {
     public boolean startalltest() {
         /**
@@ -20,16 +20,16 @@ public class Test {
         BaseProduct plant1 = farmfactory.getPlant("AngleCotton");
         BaseProduct plant2 = farmfactory.getPlant("DemonCotton");
         BaseProduct plant3 = farmfactory.getPlant("BattleMelon");
-        System.out.println(animal1.getname());
-        System.out.println(animal2.getname());
-        System.out.println(animal3.getname());
-        System.out.println(animal4.getname());
-        System.out.println(animal5.getname());
-        System.out.println(animal6.getname());
-        System.out.println(animal7.getname());
-        System.out.println(plant1.getname());
-        System.out.println(plant2.getname());
-        System.out.println(plant3.getname());
+        logger.println(animal1.getname());
+        logger.println(animal2.getname());
+        logger.println(animal3.getname());
+        logger.println(animal4.getname());
+        logger.println(animal5.getname());
+        logger.println(animal6.getname());
+        logger.println(animal7.getname());
+        logger.println(plant1.getname());
+        logger.println(plant2.getname());
+        logger.println(plant3.getname());
         return true;
     }
 }

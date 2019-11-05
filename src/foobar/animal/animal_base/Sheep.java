@@ -1,6 +1,6 @@
 package foobar.animal.animal_base;
 
-
+import logger.logger;
 import foobar.animal.action.LyingSleepAction;
 import foobar.animal.action.RunWalkAction;
 import foobar.animal.color.White;
@@ -20,7 +20,7 @@ public class Sheep extends Animal implements BreedInterface{
 
     public Sheep breed() {
     	this.state.setNStatus(1);
-        System.out.println("A new sheep has been born!");
+        logger.println("A new sheep has been born!");
     	return new Sheep();
     }
    

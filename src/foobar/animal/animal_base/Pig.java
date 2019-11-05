@@ -1,6 +1,6 @@
 package foobar.animal.animal_base;
 
-
+import logger.logger;
 import foobar.animal.action.LyingSleepAction;
 import foobar.animal.action.RunWalkAction;
 import foobar.animal.color.Black;
@@ -19,7 +19,7 @@ public class Pig extends Animal implements BreedInterface{
 
     public Pig breed() {
     	this.state.setNStatus(1);
-        System.out.println("A new pig has been born!");
+        logger.println("A new pig has been born!");
     	return new Pig();
     }
    

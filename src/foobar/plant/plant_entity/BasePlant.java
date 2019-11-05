@@ -6,6 +6,7 @@ import foobar.plant.Receiver;
 import foobar.plant.consumable.effect.PMediator;
 import foobar.plant.consumable.item.*;
 import foobar.plant.farm.*;
+import logger.logger;
 import foobar.plant.period.*;
 import foobar.plant.plant_profile.*;
 import foobar.product.product_interface.BaseProduct;
@@ -61,14 +62,15 @@ public class BasePlant implements AddFertilizerEventObserver, Receiver {
         // TODO implement here
         if(Currentperiod.getNextPeriod()!=null){
             Currentperiod=Currentperiod.getNextPeriod();
-            System.out.println("plant grow! period desc:"+Currentperiod.getDescription());
+            logger.println("植物生长 目前阶段"+Currentperiod.getDescription());
+
         }
 
     }
     //收获植物，如果没长好就返回空数组
     public ArrayList<BaseProduct> harvest(){
         if(this.riped()){
-            System.out.println("plant harvest!");
+            logger.println("植物收割");
             return Profile.getProduct();
 
         }
@@ -77,8 +79,10 @@ public class BasePlant implements AddFertilizerEventObserver, Receiver {
     //判断是否成熟，如果成熟返回true
      private boolean riped(){
         if (Currentperiod.getNextPeriod() !=null){
+            logger.println("结果：未成熟");
             return false;
         }
+         logger.println("结果：成熟");
         return true;
      }
     /**
@@ -98,8 +102,7 @@ public class BasePlant implements AddFertilizerEventObserver, Receiver {
      * @return
      */
     public int watered(int water) {
-
-        System.out.println("The Plant has been watered!");
+        logger.println("已经浇水了");
         return 1;
     }
 
@@ -109,12 +112,13 @@ public class BasePlant implements AddFertilizerEventObserver, Receiver {
      */
     public void FertilizerAdded(Fertilizer type) {
         // TODO implement here
-        System.out.println(type+"has been added");
+        logger.println(type+"化肥施加被监听到");
+
     }
 
     public void pullWeed(){
         currentWeed=0;
-        System.out.println("The Weed has been pulled!");
+        logger.println("拔草");
     }
 
     public String getName(){
@@ -124,6 +128,7 @@ public class BasePlant implements AddFertilizerEventObserver, Receiver {
     //访问者模式的accept.
     @Override
     public void accept(Tool tool) {
+        logger.println("准备调用visit");
         tool.visit(this);
     }
 

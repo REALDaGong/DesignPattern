@@ -1,5 +1,5 @@
 package foobar.plant.seed;
-
+import logger.logger;
 import java.util.*;
 
 import foobar.plant.plant_entity.*;
@@ -13,7 +13,7 @@ public abstract class SeedsFactory {
      *                这里应用了建造者模式
      */
     public SeedBag produceSeedsWithSpecialQuailty(QuailtyConstructor quailty) {
-        System.out.println(this.getClass().getName()+"不能产生特别的种子.");
+        logger.println(this.getClass().getName()+"不能产生特别的种子.");
         return produceSeeds();
     }
 

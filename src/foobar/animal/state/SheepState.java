@@ -1,5 +1,5 @@
 package foobar.animal.state;
-
+import logger.logger;
 import foobar.product.pasture_product.Mutton;
 import foobar.product.pasture_product.Wool;
 
@@ -21,29 +21,29 @@ public class SheepState extends AnimalState {
     public void eatAndGrowUp() {
         state = state + 1;
         nutritionalStatus = 1;
-        System.out.println("A sheep has eaten and grown up!");
+        logger.println("A sheep has eaten and grown up!");
         if (state == dead) {//�ɳ��׶δﵽ3������
-            System.out.println("A sheep has died of old age!");
+            logger.println("A sheep has died of old age!");
         }
     }
 
     public void justEat() {
         nutritionalStatus++;
-        System.out.println("A sheep is eating!");
+        logger.println("A sheep is eating!");
     }
 
     public void getHungryAndDie() {
         state = dead;
-        System.out.println("A sheep has starved to death!");
+        logger.println("A sheep has starved to death!");
     }
 
     public void justGetHungry() {
         nutritionalStatus--;
-        System.out.println("A sheep has nothing to eat!");
+        logger.println("A sheep has nothing to eat!");
     }
 
     public void tooYoungToProduce() {
-        System.out.println("This sheep is too young to produce wool!");
+        logger.println("This sheep is too young to produce wool!");
     }
 
     /**
@@ -51,7 +51,7 @@ public class SheepState extends AnimalState {
      */
     public Wool produceWithoutDeath() {
         // TODO implement here
-        System.out.println("A sheep has produced wool!");
+        logger.println("A sheep has produced wool!");
         return new Wool();
     }
 
@@ -60,8 +60,8 @@ public class SheepState extends AnimalState {
      */
     public Mutton produceWithDeath() {
         // TODO implement here
-        System.out.println("A piece of mutton has been produced!");
-        System.out.println("A sheep died!");
+        logger.println("A piece of mutton has been produced!");
+        logger.println("A sheep died!");
         return new Mutton();
     }
 

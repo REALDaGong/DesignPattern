@@ -1,8 +1,11 @@
 package foobar.tool.agriculture_tool;
 import foobar.plant.consumable.item.Fertilizer;
 import foobar.plant.farm.Plantable;
+import foobar.plant.plant_entity.BasePlant;
 import foobar.tool.Tool;
 
+import javax.lang.model.type.NullType;
+import logger.logger;
 //喷肥料壶
 public class FertilizationTool extends Tool {
 
@@ -16,7 +19,7 @@ public class FertilizationTool extends Tool {
     @Override
     public void visit(Object basePlant){
         if(getState() == 0){                //肥料壶已经损坏
-            System.out.println("This fertilization tool is damaged. Need to be repaired or replaced");
+            logger.println("This fertilization tool is damaged. Need to be repaired or replaced");
             return;
         }
 
@@ -24,7 +27,7 @@ public class FertilizationTool extends Tool {
 
         //operation
 
-        System.out.println("Successful!");
+        logger.println("Successful!");
 
         durability -= 2;
         setState();

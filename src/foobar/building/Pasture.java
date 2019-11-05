@@ -5,7 +5,7 @@ import foobar.building.base.Building;
 import foobar.product.product_interface.BaseProduct;
 
 import java.util.ArrayList;
-
+import logger.logger;
 public class Pasture extends Building {
     ArrayList<Chicken> chickens = new ArrayList<Chicken>();
     ArrayList<Fish> fishs = new ArrayList<Fish>();
@@ -18,30 +18,30 @@ public class Pasture extends Building {
             case "Chicken":
                 Chicken chicken = new Chicken();
                 chickens.add(chicken);
-                System.out.println("New Chicken is added in Paseture " + name);
+                logger.println("New Chicken is added in Paseture " + name);
                 break;
             case "Fish":
                 Fish fish = new Fish();
                 fishs.add(fish);
-                System.out.println("New Fish is added in Pasture " + name);
+                logger.println("New Fish is added in Pasture " + name);
                 break;
             case "Frog":
                 Frog frog = new Frog();
                 frogs.add(frog);
-                System.out.println("New Frog is added in Pasture " + name);
+                logger.println("New Frog is added in Pasture " + name);
                 break;
             case "Pig":
                 Pig pig = new Pig();
                 pigs.add(pig);
-                System.out.println("New Pig is added in Pasture " + name);
+                logger.println("New Pig is added in Pasture " + name);
                 break;
             case "Sheep":
                 Sheep sheep = new Sheep();
                 sheeps.add(sheep);
-                System.out.println("New Sheep is added in Pasture " + name);
+                logger.println("New Sheep is added in Pasture " + name);
                 break;
             default:
-                System.out.println("Error Animal Type");
+                logger.println("Error Animal Type");
         }
         return false;
     }
@@ -92,7 +92,7 @@ public class Pasture extends Building {
             }
         }
         newSheeps.forEach(i -> sheeps.add(i));
-        System.out.println("Pasture " + name + ", all animal breed");
+        logger.println("Pasture " + name + ", all animal breed");
     }
 
     public void eat() {
@@ -115,7 +115,7 @@ public class Pasture extends Building {
         for (Sheep sheep : sheeps) {
             sheep.eat();
         }
-        System.out.println("Pasture " + name + ",all animal eat something");
+        logger.println("Pasture " + name + ",all animal eat something");
     }
 
     public void setHungry() {
@@ -138,7 +138,7 @@ public class Pasture extends Building {
         for (Sheep sheep : sheeps) {
             sheep.setHungry();
         }
-        System.out.println("Pasture " + name + ",all animal are hungry");
+        logger.println("Pasture " + name + ",all animal are hungry");
     }
 
     public ArrayList<BaseProduct> produceWithDeath() {
@@ -190,11 +190,11 @@ public class Pasture extends Building {
 
     @Override
     public void show() {
-        System.out.println("Pasture\t" + name + ":");
-        System.out.println("Chicken\t:" + chickens.size());
-        System.out.println("Fish\t:" + fishs.size());
-        System.out.println("Frog\t:" + frogs.size());
-        System.out.println("Pig\t\t:" + pigs.size());
-        System.out.println("Sheep\t:" + sheeps.size());
+        logger.println("Pasture\t" + name + ":");
+        logger.println("Chicken\t:" + chickens.size());
+        logger.println("Fish\t:" + fishs.size());
+        logger.println("Frog\t:" + frogs.size());
+        logger.println("Pig\t\t:" + pigs.size());
+        logger.println("Sheep\t:" + sheeps.size());
     }
 }

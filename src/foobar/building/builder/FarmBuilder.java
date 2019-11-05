@@ -3,7 +3,7 @@ package foobar.building.builder;
 import foobar.building.base.Building;
 import foobar.building.base.BuildingBuilder;
 import foobar.building.Farm;
-
+import logger.logger;
 public class FarmBuilder extends BuildingBuilder {
 
     private Farm farm = new Farm();
@@ -18,12 +18,12 @@ public class FarmBuilder extends BuildingBuilder {
 
     @Override
     public void prepare() {
-        System.out.println("New Farm " + farm.name + "  is prepared");
+        logger.println("New Farm " + farm.name + "  is prepared");
     }
 
     @Override
     public void building() {
-        System.out.println("New Farm " + farm.name + "  is builded");
+        logger.println("New Farm " + farm.name + "  is builded");
     }
 
     @Override

@@ -1,7 +1,7 @@
 package foobar.animal.action;
 
 import foobar.animal.animal_base.Animal;
-
+import logger.logger;
 /**
  * 
  */
@@ -18,7 +18,7 @@ public class SwimWalkAction implements WalkAction {
      */
     public void walkWay(Animal animal) {
         // TODO implement here
-    	System.out.println("Animal "+animal.getType()+" swim in the water");
+    	logger.println("Animal "+animal.getType()+" swim in the water");
     }
 
     /**

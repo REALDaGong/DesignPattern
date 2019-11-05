@@ -2,8 +2,7 @@ package foobar.plant.consumable.effect;
 
 import foobar.plant.consumable.item.Fertilizer;
 import foobar.plant.consumable.item.Pesticide;
-import foobar.plant.farm.Plantable;
-import foobar.plant.farm.Tile;
+import logger.logger;
 import foobar.plant.plant_entity.BasePlant;
 
 import java.util.ArrayList;
@@ -38,11 +37,11 @@ public class FMediator implements Mediator {
     //所有药剂发挥作用
     public void actAll() {
         if (dirt==null){
-            System.out.println("[FATAL] plant:consumable:effect:Mediator:no dirt added");
+            logger.println("正常情况下应该看不到这条log,这说明中介者没有被正确初始化：没有传入被施加者");
 
         }
 
-        System.out.println("effect:");
+        logger.println("全部的效果是");
         for(BonusEffect i:effects){
 
             //施加所有效果到植物上，现在只是显示一下

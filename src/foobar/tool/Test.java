@@ -13,7 +13,7 @@ import foobar.tool.building_tool.DigProxy;
 import foobar.tool.building_tool.DigTool;
 import foobar.tool.toolkit.ToolKit;
 import foobar.tool.toolkit.command.ToolKitCommand;
-
+import logger.logger;
 //测试tool中的设计模式
 public class Test {
     public void testProxy(){
@@ -36,26 +36,26 @@ public class Test {
 
     public void testPrototype(){
         WeedTool weedTool = new WeedTool();
-        System.out.println(weedTool.getState());
+        logger.println(weedTool.getState());
         for(int i = 1; i <= 101; i++) {
             BasePlant basePlant = new BasePlant(PlantProfileManager.getInstance().getPlantProfile("Cotton"),"hello");
             weedTool.visit(basePlant);
         }
-        System.out.println(weedTool.getState());
+        logger.println(weedTool.getState());
         weedTool = (WeedTool)weedTool.replaceByNewOne();
-        System.out.println(weedTool.getState());
+        logger.println(weedTool.getState());
     }
 
     public void testState(){
         WeedTool weedTool = new WeedTool();
-        System.out.println(weedTool.getState());
+        logger.println(weedTool.getState());
         for(int i = 1; i <= 101; i++) {
             BasePlant basePlant = new BasePlant(PlantProfileManager.getInstance().getPlantProfile("Cotton"),"hello");
             weedTool.visit(basePlant);
         }
-        System.out.println(weedTool.getState());
+        logger.println(weedTool.getState());
         weedTool = (WeedTool)weedTool.replaceByNewOne();
-        System.out.println(weedTool.getState());
+        logger.println(weedTool.getState());
     }
 
     public void testStrategy(){
@@ -77,13 +77,13 @@ public class Test {
     public void testCommandMemento(){
         ToolKit tk = new ToolKit();
         ToolKitCommand tkc = new ToolKitCommand(tk);
-        System.out.println(tk.getLevel());
+        logger.println(tk.getLevel());
         tkc.execute();//1
-        System.out.println(tk.getLevel());
+        logger.println(tk.getLevel());
         tkc.redo();//2
-        System.out.println(tk.getLevel());
+        logger.println(tk.getLevel());
         tkc.undo();//3
-        System.out.println(tk.getLevel());
+        logger.println(tk.getLevel());
     }
 
     public void startAllTest(){

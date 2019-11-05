@@ -1,6 +1,6 @@
 package foobar.animal.animal_base;
 
-
+import logger.logger;
 import foobar.animal.action.LyingSleepAction;
 import foobar.animal.action.RunWalkAction;
 import foobar.animal.color.White;
@@ -20,7 +20,7 @@ public class Chicken extends Animal implements BreedInterface{
     public Chicken breed() {
 
     	state.setNStatus(1);
-    	System.out.println("A new chicken has been born!");
+    	logger.println("A new chicken has been born!");
     	return new Chicken();
     	
     }

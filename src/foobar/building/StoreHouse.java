@@ -8,7 +8,7 @@ import foobar.product.pasture_product.*;
 import foobar.product.product_interface.BaseProduct;
 
 import java.util.ArrayList;
-
+import logger.logger;
 public class StoreHouse extends Building {
 
     private ArrayList<AngleCotton> angelCotton = new ArrayList<>();
@@ -26,34 +26,34 @@ public class StoreHouse extends Building {
 
     @Override
     public void show() {
-        System.out.println("Chicken :" + chicken.size());
-        System.out.println("Fish :" + fish.size());
-        System.out.println("Frog :" + frog.size());
-        System.out.println("Pork :" + pork.size());
-        System.out.println("Mutton :" + mutton.size());
-        System.out.println("Egg :" + egg.size());
-        System.out.println("Wool :" + wool.size());
-        System.out.println("AngelCotton :" + angelCotton.size());
-        System.out.println("DemonCotton :" + demonCotton.size());
-        System.out.println("BattleMelon :" + battlemelon.size());
+        logger.println("Chicken :" + chicken.size());
+        logger.println("Fish :" + fish.size());
+        logger.println("Frog :" + frog.size());
+        logger.println("Pork :" + pork.size());
+        logger.println("Mutton :" + mutton.size());
+        logger.println("Egg :" + egg.size());
+        logger.println("Wool :" + wool.size());
+        logger.println("AngelCotton :" + angelCotton.size());
+        logger.println("DemonCotton :" + demonCotton.size());
+        logger.println("BattleMelon :" + battlemelon.size());
     }
 
     public void addPlant(BaseProduct product) {
         switch (product.getname()) {
             case "anglecotton":
                 angelCotton.add((AngleCotton) product);
-                System.out.println("AngleCotton upgrade");
+                logger.println("AngleCotton upgrade");
                 break;
             case "demoncotton":
                 demonCotton.add((DemonCotton) product);
-                System.out.println("DemonCotton upgrade");
+                logger.println("DemonCotton upgrade");
                 break;
             case "battlemelon":
                 battlemelon.add((BattleMelon) product);
-                System.out.println("BattleMelon upgrade");
+                logger.println("BattleMelon upgrade");
                 break;
             default:
-                System.out.println("Error Plant");
+                logger.println("Error Plant");
                 break;
         }
     }

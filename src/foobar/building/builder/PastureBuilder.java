@@ -3,7 +3,7 @@ package foobar.building.builder;
 import foobar.building.base.Building;
 import foobar.building.base.BuildingBuilder;
 import foobar.building.Pasture;
-
+import logger.logger;
 public class PastureBuilder extends BuildingBuilder {
     private Pasture pasture = new Pasture();
     public PastureBuilder(String name, int xlen, int ylen, int zlen) {
@@ -16,12 +16,12 @@ public class PastureBuilder extends BuildingBuilder {
 
     @Override
     public void prepare() {
-        System.out.println("New Pasture " + pasture.name + " is prepared");
+        logger.println("New Pasture " + pasture.name + " is prepared");
     }
 
     @Override
     public void building() {
-        System.out.println("New Pasture " + pasture.name + " is builded");
+        logger.println("New Pasture " + pasture.name + " is builded");
     }
 
     @Override

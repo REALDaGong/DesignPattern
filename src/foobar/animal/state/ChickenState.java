@@ -2,7 +2,7 @@ package foobar.animal.state;
 
 import foobar.product.pasture_product.ChickenMeat;
 import foobar.product.pasture_product.Egg;
-
+import logger.logger;
 /**
  * 
  */
@@ -21,28 +21,28 @@ public class ChickenState extends AnimalState {
     public void eatAndGrowUp() {
     	state=state+1;
     	nutritionalStatus=1;
-    	System.out.println("A chicken has eaten and grown up!");
+    	logger.println("A chicken has eaten and grown up!");
     	if(state==dead) {//�ɳ��׶δﵽ3������
-			System.out.println("A chicken has died of old age!");
+			logger.println("A chicken has died of old age!");
 		}
     	}
     public void justEat() {
     	nutritionalStatus++;
-    	System.out.println("A chicken is eating!");
+    	logger.println("A chicken is eating!");
     }
    
     public void getHungryAndDie() {
     	state=dead;
-		System.out.println("A chicken has starved to death!");
+		logger.println("A chicken has starved to death!");
     }
 
     public void justGetHungry() {
     	nutritionalStatus--;
-    	System.out.println("A chicken has nothing to eat!");
+    	logger.println("A chicken has nothing to eat!");
     }
     
     public void tooYoungToProduce() {
-    	System.out.println("This chicken is too young to lay an egg!");
+    	logger.println("This chicken is too young to lay an egg!");
     }
     
     /**
@@ -50,7 +50,7 @@ public class ChickenState extends AnimalState {
      */
     public Egg produceWithoutDeath() {    	
 				//��������	
-    	System.out.println("A chicken has laid an egg!");
+    	logger.println("A chicken has laid an egg!");
     	return new Egg();
 		     
     }
@@ -62,8 +62,8 @@ public class ChickenState extends AnimalState {
         // TODO implement here
     	
 			//��������		
-    	System.out.println("A piece of chicken has been produced!");
-    	System.out.println("A chicken died!");
+    	logger.println("A piece of chicken has been produced!");
+    	logger.println("A chicken died!");
 		return new ChickenMeat();
     }
 

@@ -4,7 +4,7 @@ import foobar.people.actions.*;
 import foobar.people.mementoes.*;
 import foobar.people.types.*;
 import foobar.tool.Tool;
-
+import logger.logger;
 // 表示农场工人的类，继承自 Person
 public class Farmhand extends Person {
     private int salary;             // 农场工人的薪水
@@ -16,9 +16,9 @@ public class Farmhand extends Person {
         super(name);
         this.salary = salary;
         this.type = type;
-        System.out.println("Farmhand " + super.name + " is successfully created!");
-        System.out.println(super.name + "'s salary is $" + salary + '.');
-        System.out.println(super.name + "'s type is " + type.toString() + '.');
+        logger.println("Farmhand " + super.name + " is successfully created!");
+        logger.println(super.name + "'s salary is $" + salary + '.');
+        logger.println(super.name + "'s type is " + type.toString() + '.');
     }
 
     // 设定链表中下一个元素
@@ -60,7 +60,7 @@ public class Farmhand extends Person {
             next.doAgricultureWork(tool, obj);
         }
         // 若请求传至责任链尾部时，仍没有对象可以处理该请求，则程序将该情况输出
-        System.out.println("No farmhand can finish the task.");
+        logger.println("No farmhand can finish the task.");
         return false;
     }
 
@@ -74,7 +74,7 @@ public class Farmhand extends Person {
         else if (next != null) {
             next.doAgricultureWork(tool, obj);
         }
-        System.out.println("No farmhand can finish the task.");
+        logger.println("No farmhand can finish the task.");
         return false;
     }
 
@@ -88,7 +88,7 @@ public class Farmhand extends Person {
         else if (next != null) {
             next.repairTool(tool);
         }
-        System.out.println("No farmhand can finish the task.");
+        logger.println("No farmhand can finish the task.");
         return false;
     }
 
@@ -102,7 +102,7 @@ public class Farmhand extends Person {
         else if (next != null) {
             next.replaceTool(tool);
         }
-        System.out.println("No farmhand can finish the task.");
+        logger.println("No farmhand can finish the task.");
         return false;
     }
 }

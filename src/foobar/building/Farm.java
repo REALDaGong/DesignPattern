@@ -7,7 +7,7 @@ import foobar.plant.plant_entity.BasePlant;
 import foobar.product.product_interface.BaseProduct;
 
 import java.util.ArrayList;
-//import foobar.plant.farm.plantable;
+import logger.logger;
 
 public class Farm extends Building {
 
@@ -17,7 +17,7 @@ public class Farm extends Building {
 
     public boolean add(Plantable object) {
         if (!(object instanceof Plantable)) {
-            System.out.println("Farm only can store plant");
+            logger.println("Farm only can store plant");
             return false;
         }
         plantables.add((Plantable) object);

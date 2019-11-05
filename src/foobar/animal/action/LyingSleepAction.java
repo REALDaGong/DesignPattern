@@ -1,7 +1,7 @@
 package foobar.animal.action;
 
 import foobar.animal.animal_base.Animal;
-
+import logger.logger;
 /**
  * 
  */
@@ -18,7 +18,7 @@ public class LyingSleepAction implements SleepAction {
      */
     public void sleepWay(Animal animal) {
         // TODO implement here
-    	System.out.println("Animal "+animal.getType()+" sleep by lying in the farm ");
+    	logger.println("Animal "+animal.getType()+" sleep by lying in the farm ");
     }
 
     /**

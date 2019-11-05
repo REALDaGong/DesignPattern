@@ -3,7 +3,7 @@ package foobar.building.builder;
 import foobar.building.base.Building;
 import foobar.building.base.BuildingBuilder;
 import foobar.building.StoreHouse;
-
+import logger.logger;
 public class StoreHouseBuilder extends BuildingBuilder {
     private StoreHouse storeHouse = new StoreHouse();
 
@@ -17,12 +17,12 @@ public class StoreHouseBuilder extends BuildingBuilder {
 
     @Override
     public void prepare() {
-        System.out.println("New storeHouse " + storeHouse.name + " is prepared");
+        logger.println("New storeHouse " + storeHouse.name + " is prepared");
     }
 
     @Override
     public void building() {
-        System.out.println("New storeHouse " + storeHouse.name + " is builded");;
+        logger.println("New storeHouse " + storeHouse.name + " is builded");;
     }
 
     @Override

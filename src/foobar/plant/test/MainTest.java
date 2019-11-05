@@ -67,6 +67,8 @@ public class MainTest {
         Fertilizer f=Jfactory.getFertilizer();
         Pesticide p=Jfactory.getPesticide();
 
+        ((Tile) ((Field)field).getchild(0)).getPlant().pesticided(p);
+
         //测试普通农药
         f.setBonusEffect(new Anamnesis());
         field.addFertilizer(f);
@@ -93,9 +95,7 @@ public class MainTest {
         Planter planter=new Planter(seedBag2, (Tile) ((Field) field2).getchild(0));
         planter.plantAt(tile2);
 
-        //测试特殊品质种子
 
-        System.out.println("目前一切正常，但是整体植物测试尚未完成.....");
 
     }
 }
